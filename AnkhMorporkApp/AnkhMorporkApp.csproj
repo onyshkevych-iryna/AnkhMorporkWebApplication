@@ -56,6 +56,8 @@
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Thief.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GuildsServices\GuildOfBeggarsService.cs" />
+    <Compile Include="Services\GuildsServices\GuildOfFoolsService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

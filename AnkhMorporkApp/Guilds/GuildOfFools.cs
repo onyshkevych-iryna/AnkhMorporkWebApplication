@@ -24,7 +24,6 @@ namespace AnkhMorporkApp.Guilds
                 { 7, new Fool( "Stupid Fool", 7 )},
                 { 8, new Fool( "Arch Fool", 8 )},
                 { 9, new Fool( "Complete Fool", 10 )}
-
             };
 
         }

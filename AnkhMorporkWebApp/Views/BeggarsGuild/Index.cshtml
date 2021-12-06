@@ -1,0 +1,12 @@
+﻿@using AnkhMorporkApp.Models
+@model AnkhMorporkApp.Models.Beggar
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Beggars</h2>
+<p>Press Yes to</p>
+@Model.Fee
+
+<a href="/BeggarsGuild/Yes">Yes</a>
+<button name="No">No</button>

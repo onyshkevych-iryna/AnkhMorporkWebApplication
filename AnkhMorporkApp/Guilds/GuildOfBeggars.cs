@@ -14,7 +14,20 @@ namespace AnkhMorporkApp.Guilds
 
         public GuildOfBeggars()
         {
-           
+            Beggars = new Dictionary<int, Beggar>()
+            {
+                { 1, new Beggar( "Twitchers", 3 )},
+                { 2, new Beggar("Droolers", 2 )},
+                { 3, new Beggar("Dribblers", 1 )},
+                { 4, new Beggar("Mumblers", 1 )},
+                { 5, new Beggar("Mutterers", 0.9m )},
+                { 6, new Beggar("Walking-Along-Shouter", 0.8m )},
+                { 7, new Beggar("Demanders of a Chip", 0.6m )},
+                { 8, new Beggar("People Who Call Other People Jimmy", 0.5m )},
+                { 9, new Beggar("People Who Need Eightpence For A Meal", 0.08m )},
+                { 10,new Beggar( "People Who Need Tuppence For A Cup Of Tea", 0.02m)},
+                { 11,new Beggar("People Who Need Tuppence For A Cup Of Tea", 0.02m )}
+            };
         }
 
         public override void InteractionWithPlayer(Player player, Beggar beggar)

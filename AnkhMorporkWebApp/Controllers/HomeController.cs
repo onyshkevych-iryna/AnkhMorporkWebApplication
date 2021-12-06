@@ -1,30 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Services.Description;
-using AnkhMorporkApp.Guilds;
 using AnkhMorporkApp.Models;
+using AnkhMorporkApp.Services.GuildsServices;
 
 namespace AnkhMorporkWebApp.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            Player _player = new Player();
-          const int _maxNumberOfGuilds = 4;
+        { 
+            var _player = new Player();
+            const int _maxNumberOfGuilds = 4;
           _player.IsAlive = true;
           var rnd = new Random();
           var random = rnd.Next(0, _maxNumberOfGuilds);
           if (_player.IsAlive)
           {
-              var guildOfFools = new GuildOfFools();
-              var fools = guildOfFools.Fools;
-              var randomFool = fools[rnd.Next(1, fools.Count + 1)];
-              return RedirectToAction("Index", "ThievesGuild",
-                  new { fee = randomFool.Fee, practice = randomFool.Practice });
+              switch (random)
+              {
+                  case 0:
+                      var service = new GuildOfFoolsService();
+                      return RedirectToAction("Index", "FoolsGuild",
+                          new {fee = service.GetRandomFool(rnd).Fee, practice = service.GetRandomFool(rnd).Practice});
+                  case 1:
+                      var service1 = new GuildOfBeggarsService();
+                      return RedirectToAction("Index", "BeggarsGuild",
+                          new
+                          {
+                              fee = service1.GetRandomBeggar(rnd).Fee, practice = service1.GetRandomBeggar(rnd).Practice
+                          });
+                  case 2:
+                      return RedirectToAction("Index", "ThievesGuild");
+                  case 3:
+                      return RedirectToAction("About", "AssassinsGuild");
+              }
           }
                  
            
