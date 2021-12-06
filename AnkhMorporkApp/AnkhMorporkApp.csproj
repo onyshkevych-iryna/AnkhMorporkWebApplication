@@ -46,7 +46,10 @@
     <Compile Include="Abstracts\IGuildServices\IGuildOfBeggarsService.cs" />
     <Compile Include="Abstracts\IGuildServices\IGuildOfFoolsService.cs" />
     <Compile Include="Abstracts\IGuildServices\IGuildOfThievesService.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Guilds\GuildOfAssassins.cs" />
+    <Compile Include="Guilds\GuildOfBeggars.cs" />
+    <Compile Include="Guilds\GuildOfFools.cs" />
+    <Compile Include="Guilds\GuildOfThieves.cs" />
     <Compile Include="Models\Assassin.cs" />
     <Compile Include="Models\Beggar.cs" />
     <Compile Include="Models\Fool.cs" />
@@ -54,8 +57,6 @@
     <Compile Include="Models\Thief.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Guilds\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

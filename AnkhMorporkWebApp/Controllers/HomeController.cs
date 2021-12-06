@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
+using AnkhMorporkApp.Guilds;
+using AnkhMorporkApp.Models;
 
 namespace AnkhMorporkWebApp.Controllers
 {
@@ -10,7 +13,22 @@ namespace AnkhMorporkWebApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            Player _player = new Player();
+          const int _maxNumberOfGuilds = 4;
+          _player.IsAlive = true;
+          var rnd = new Random();
+          var random = rnd.Next(0, _maxNumberOfGuilds);
+          if (_player.IsAlive)
+          {
+              var guildOfFools = new GuildOfFools();
+              var fools = guildOfFools.Fools;
+              var randomFool = fools[rnd.Next(1, fools.Count + 1)];
+              return RedirectToAction("Index", "ThievesGuild",
+                  new { fee = randomFool.Fee, practice = randomFool.Practice });
+          }
+                 
+           
+          return Content(random.ToString());
         }
 
         public ActionResult About()
