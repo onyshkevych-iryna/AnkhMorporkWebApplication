@@ -10,8 +10,16 @@ namespace AnkhMorporkApp.Guilds
 {
     public class GuildOfAssassins: Guilds<List<Assassin>>
     {
+        public List<Assassin> Assassins;
         public GuildOfAssassins()
         {
+            Assassins = new List<Assassin>()
+            {
+                new Assassin("Assassin1", 15, 30, true),
+                new Assassin("Assassin2", 10, 20, false),
+                new Assassin("Assassin3", 7, 12, true),
+                new Assassin("Assassin4", 15, 19, false),
+            };
             //try
             //{
             //    var assassinsData = System.Text.Encoding.Default.GetString(Resources.listOfAssassins);

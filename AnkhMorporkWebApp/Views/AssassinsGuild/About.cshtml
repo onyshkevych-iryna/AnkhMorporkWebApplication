@@ -1,0 +1,17 @@
+﻿@using AnkhMorporkWebApp.Models
+@model AnkhMorporkWebApp.Models.PlayerMoneyViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Assassins</h2>
+<form action="@Url.Action("Index", "AssassinsGuild")">
+    <input id="Index1" name="Index" type="text" />
+    <input id="Sum" type="submit" value="Cauta" />
+</form>
+
+
+@*//@Html.ActionLink("Input", "Index", "AssassinsGuild", new { amount = Model. }, null)*@
+@*<tr><td><input type="submit" value="Input" /> </td>*@
+<button name="No">No</button>
+@*<td></td></tr>*@
