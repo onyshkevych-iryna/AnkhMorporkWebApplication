@@ -1,26 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using AnkhMorporkApp.Models;
+using AnkhMorporkWebApp.Models;
+using Player = AnkhMorporkApp.Models.Player;
 
 namespace AnkhMorporkWebApp.Controllers
 {
     public class BeggarsGuildController : Controller
     {
         // GET: BeggarssGuild
-        public ActionResult Index(decimal fee, string practice)
+        public ActionResult Index()
         {
-            var beggar = new Beggar(practice, fee);
-
-            return View(beggar);
+            var model = TempData["NewBeggarModel"] as PlayerBeggarViewModel;
+            return View(model);
         }
 
-        public ActionResult Yes()
+        public ActionResult Yes(decimal sum, decimal balance)
         {
-
-            return RedirectToAction("Index", "Home");
+            Player player = new Player(balance);
+            player.GiveMoney(sum);
+            return RedirectToAction("Index", "Home", player);
         }
     }
 }

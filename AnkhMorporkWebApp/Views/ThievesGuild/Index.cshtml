@@ -1,12 +1,13 @@
-﻿@using AnkhMorporkApp.Models
-@model AnkhMorporkApp.Models.Thief
+﻿@using AnkhMorporkWebApp.Models
+@model AnkhMorporkWebApp.Models.PlayerThiefModel
 @{
     ViewBag.Title = "Index";
 }
-
+@Model.slogan
 <h2>Thieves</h2>
 <p>Press Yes to</p>
-@Model.Fee
+@Model.thief.Fee
+@Model.player.Balance
 
-<a href="/ThievesGuild/Yes">Yes</a>
+@Html.ActionLink("Yes", "Yes", "ThievesGuild", new { sum = Model.thief.Fee, balance = Model.player.Balance}, null)
 <button name="No">No</button>

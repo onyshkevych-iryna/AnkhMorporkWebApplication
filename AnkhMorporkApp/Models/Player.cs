@@ -22,10 +22,9 @@ namespace AnkhMorporkApp.Models
             validOutput = true;
         }
 
-        public void GiveMoney(decimal amount, ref bool validOutput)
+        public void GiveMoney(decimal amount)
         {
             this.Balance -= amount;
-            validOutput = true;
             if (this.Balance <= 0)
             {
                 IsAlive = false;

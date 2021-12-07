@@ -123,7 +123,9 @@
     <Compile Include="Controllers\AssassinsGuildController.cs" />
     <Compile Include="Controllers\BeggarsGuildController.cs" />
     <Compile Include="Controllers\FoolsGuildController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\ThievesGuildController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -132,7 +134,10 @@
     <Compile Include="Models\Beggar.cs" />
     <Compile Include="Models\Fool.cs" />
     <Compile Include="Models\Player.cs" />
-    <Compile Include="Models\PlayerMoneyViewModel.cs" />
+    <Compile Include="Models\PlayerAssassinViewModel.cs" />
+    <Compile Include="Models\PlayerBeggarViewModel.cs" />
+    <Compile Include="Models\PlayerFoolViewModel.cs" />
+    <Compile Include="Models\PlayerThiefModel.cs" />
     <Compile Include="Models\Thief.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,9 +182,12 @@
     <Content Include="Views\BeggarsGuild\Index.cshtml" />
     <Content Include="Views\AssassinsGuild\Index.cshtml" />
     <Content Include="Views\AssassinsGuild\About.cshtml" />
+    <Content Include="Views\Player\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Game\" />
+    <Folder Include="Views\PlayerFool\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -4,35 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AnkhMorporkApp.Guilds;
-using AnkhMorporkApp.Models;
 using AnkhMorporkWebApp.Models;
 
 namespace AnkhMorporkWebApp.Controllers
 {
     public class AssassinsGuildController : Controller
     {
-        // GET: AssassinsGuild
-        //[HttpPost]
-        //public ActionResult Index(PlayerMoneyViewModel vm)
-        //{
-        //    var guildOfAssassins = new GuildOfAssassins();
-        //    var assassin = guildOfAssassins.Assassins
-        //        .FirstOrDefault(a => a.MinReward <= vm.Sum && a.MaxReward >= vm.Sum && !a.IsOccupied);
-        //    return Content(assassin.Name);
-        //}
-
-        //[HttpGet]
-        //public ActionResult About()
-        //{
-            
-        //    return View();
-
+        [HttpPost]
+        public ActionResult Index(PlayerAssassinViewModel vm)
+        {
+            var guildOfAssassins = new GuildOfAssassins();
+                var assassin = guildOfAssassins.Assassins
+                    .FirstOrDefault(a => a.MinReward <= vm.amount && a.MaxReward >= vm.amount && !a.IsOccupied);
+                Player player = new Player(vm.player.Balance);
+                player.GiveMoney(vm.amount);
+                return RedirectToAction("Index", "Home", player);
         }
-        //// GET: AssassinsGuild
-        //public ActionResult About()
-        //{
-        //     var pw = new PlayerMoneyViewModel();
-        //    return View(pw);
-        //}
+
+        // GET: AssassinsGuild
+        public ActionResult About()
+        {
+            var model = TempData["NewAssassinModel"] as PlayerAssassinViewModel;
+            return View(model);
+        }
     }
 }

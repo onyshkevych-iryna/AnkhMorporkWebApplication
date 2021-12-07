@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AnkhMorporkApp.Models;
+﻿using System.Web.Mvc;
+using AnkhMorporkWebApp.Models;
+using Fool = AnkhMorporkApp.Models.Fool;
 
 namespace AnkhMorporkWebApp.Controllers
 {
     public class FoolsGuildController : Controller
     {
         // GET: FoolsGuild
-        public ActionResult Index(decimal fee, string practice)
+        public ActionResult Index()
         {
-            var fool = new Fool(practice, fee);
-
-            return View(fool);
+            var model = TempData["NewFoolModel"] as PlayerFoolViewModel;
+            return View(model);
         }
 
-        public ActionResult Yes()
+        public ActionResult Yes(decimal sum, decimal balance)
         {
-
-            return RedirectToAction("Index", "Home");
+            Player player = new Player(balance);
+            player.GetMoney(sum);
+            return RedirectToAction("Index", "Home", player);
         }
     }
 }
