@@ -134,6 +134,7 @@
     <Compile Include="Models\Beggar.cs" />
     <Compile Include="Models\Fool.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\PlayerBeggarViewModel.cs" />
     <Compile Include="Models\PlayerFoolViewModel.cs" />
     <Compile Include="Models\PlayerMoneyViewModel.cs" />
     <Compile Include="Models\PlayerThiefModel.cs" />

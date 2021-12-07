@@ -13,7 +13,7 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Index(Player _player)
         {
-            const int _maxNumberOfGuilds = 2;
+            const int _maxNumberOfGuilds = 3;
           var rnd = new Random();
           var random = rnd.Next(0, _maxNumberOfGuilds);
           if (_player.IsAlive)
@@ -30,14 +30,16 @@ namespace AnkhMorporkWebApp.Controllers
                         TempData["NewFoolModel"] = pfvm;
                         return RedirectToAction("Index", "FoolsGuild",
                             pfvm);
-                    //case 1:
-                    //    var service1 = new GuildOfBeggarsService();
-                    //    return RedirectToAction("Index", "BeggarsGuild",
-                    //        new
-                    //        {
-                    //            fee = service1.GetRandomBeggar(rnd).Fee, practice = service1.GetRandomBeggar(rnd).Practice
-                    //        });
                     case 1:
+                        var service1 = new GuildOfBeggarsService();
+                        PlayerBeggarViewModel pbvm = new PlayerBeggarViewModel
+                        {
+                            player = _player,
+                            begar = new Beggar(service1.GetRandomBeggar(rnd).Practice, service1.GetRandomBeggar(rnd).Fee)
+                        };
+                        TempData["NewBeggarModel"] = pbvm;
+                        return RedirectToAction("Index", "BeggarsGuild");
+                    case 2:
                         PlayerThiefModel player = new PlayerThiefModel
                         {
                             player = _player,

@@ -9,5 +9,6 @@ namespace AnkhMorporkWebApp.Models
     {
         public Player player { get; set; }
         public Fool fool { get; set; }
+        public string slogan { get; set; } = "You met a fool!";
     }
 }

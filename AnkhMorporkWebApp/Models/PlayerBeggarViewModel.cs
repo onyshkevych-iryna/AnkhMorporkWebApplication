@@ -5,10 +5,10 @@ using System.Web;
 
 namespace AnkhMorporkWebApp.Models
 {
-    public class PlayerThiefModel
+    public class PlayerBeggarViewModel
     {
         public Player player { get; set; }
-        public Thief thief { get; set; }
-        public string slogan { get; set; } = "You met a thieve!";
+        public Beggar begar { get; set; }
+        public string slogan { get; set; } = "You met a beggar!";
     }
 }
