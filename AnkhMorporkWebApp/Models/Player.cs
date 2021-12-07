@@ -2,7 +2,7 @@
 
 namespace AnkhMorporkWebApp.Models
 {
-    public  class Player
+    public class Player
     {
         public decimal Balance { get; set; } = 100;
         public bool IsAlive { get; set; } = true;
@@ -37,6 +37,7 @@ namespace AnkhMorporkWebApp.Models
             {
                 return false;
             }
+
             //ConsoleColorChanger.ChangeColor("You don't have enough money! Game is over.", ConsoleColor.Red);
             IsAlive = false;
             return true;
@@ -48,25 +49,25 @@ namespace AnkhMorporkWebApp.Models
             {
                 return true;
             }
+
             //Console.WriteLine("You don't have that sum of money! Please, try again:");
             return false;
         }
 
-        public void Skip(Type enemy)
+        public string Skip(Type enemy)
         {
             switch (enemy)
             {
                 case var _ when (enemy.Equals(typeof(Thief)) || enemy.Equals(typeof(Assassin))):
                     IsAlive = false;
-                    //ConsoleColorChanger.ChangeColor("You're killed! Game is over.", ConsoleColor.Red);
-                    break;
+                    return "You're killed! Game is over.";
                 case var _ when enemy.Equals(typeof(Beggar)):
                     IsAlive = false;
-                    //ConsoleColorChanger.ChangeColor("You're chased to death! Game is over.", ConsoleColor.Red);
-                    break;
+                    return "You're chased to death! Game is over.";
                 case var _ when enemy.Equals(typeof(Fool)):
-                   // ConsoleColorChanger.ChangeColor("You rejected the offer.", ConsoleColor.Red);
-                    break;
+                    return "You rejected the offer.";
+                default:
+                    return "";
             }
         }
     }

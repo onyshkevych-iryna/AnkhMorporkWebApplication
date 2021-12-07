@@ -1,0 +1,11 @@
+﻿@using AnkhMorporkWebApp.Models
+@model MessageViewModel
+@{
+    ViewBag.Title = "EndOfGame";
+}
+
+<h2>EndOfGame</h2>
+@if (!Model.Message.IsEmpty())
+{
+    @Model.Message
+}

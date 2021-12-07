@@ -16,12 +16,23 @@ namespace AnkhMorporkWebApp.Controllers
             --GuildOfThieves.NumberOfThieves;
             return View(model);
         }
+        
 
         public ActionResult Yes(decimal sum, decimal balance)
         {
             Player player = new Player(balance);
+
             player.GiveMoney(sum);
             return RedirectToAction("Index", "Home", player);
+
+        }
+
+        public ActionResult No(Player player)
+        {
+
+            string message = player.Skip(typeof(Thief));
+
+            return RedirectToAction("EndOfGame", "Game", new { slogan = message });
         }
     }
 }

@@ -3,12 +3,8 @@
 @{
     ViewBag.Title = "Index";
 }
-@Model.slogan
-<h2>Fools</h2>
-<p>Press Yes to</p>
-@Model.fool.Fee
-<p>Current balance:</p>
-@Model.player.Balance
-@Html.ActionLink("Yes", "Yes", "FoolsGuild", new { sum = Model.fool.Fee, balance = Model.player.Balance }, null)
+<p>Current balance:</p> @Model.player.Balance
 
-<button name="No">No</button>
+<h2>@Model.slogan @Model.fool.Practice @Model.slogans @Model.fool.Fee @Model.slogant</h2>
+@Html.ActionLink("Yes", "Yes", "FoolsGuild", new { sum = Model.fool.Fee, balance = Model.player.Balance }, null)
+@Html.ActionLink("No", "No", "FoolsGuild", Model.player, null)

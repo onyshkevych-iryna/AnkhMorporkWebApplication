@@ -17,5 +17,14 @@ namespace AnkhMorporkWebApp.Controllers
 
         return RedirectToAction("Index", "Home", _player);
         }
+
+        public ActionResult EndOfGame(string slogan)
+        {
+            MessageViewModel mvm = new MessageViewModel
+            {
+                Message = slogan
+            };
+            return View(mvm);
+        }
     }
 }

@@ -3,11 +3,9 @@
 @{
     ViewBag.Title = "Index";
 }
-@Model.slogan
-<p>Current balance:</p>
-@Model.player.Balance
-<h2>Assassins</h2>
-@using (Html.BeginForm("Index", "AssassinsGuild", FormMethod.Post))
+<p>Current balance:</p> @Model.player.Balance
+<h2>@Model.slogan</h2>
+@using (Html.BeginForm("Input", "AssassinsGuild", FormMethod.Post))
 {
     <table>
         <tr>
@@ -21,7 +19,5 @@
             <td></td></tr>*@
     </table>
     @*@Html.ActionLink("Yes", "Yes", "FoolsGuild", new { balance = Model.player.Balance }, null)*@
-
-    <button name="action" value="add">Добавить</button>
-    <button name="action" value="delete">Удалить</button>
+    <button name="action" value="yes">Yes</button>
 }
