@@ -13,27 +13,31 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Index(Player _player)
         {
-            int e = 3;
-            const int _maxNumberOfGuilds = 1;
+            const int _maxNumberOfGuilds = 2;
           var rnd = new Random();
           var random = rnd.Next(0, _maxNumberOfGuilds);
           if (_player.IsAlive)
           {
               switch (random)
               {
-                  //case 0:
-                  //    var service = new GuildOfFoolsService();
-                  //    return RedirectToAction("Index", "FoolsGuild",
-                  //        new {fee = service.GetRandomFool(rnd).Fee, practice = service.GetRandomFool(rnd).Practice});
-                  //case 1:
-                  //    var service1 = new GuildOfBeggarsService();
-                  //    return RedirectToAction("Index", "BeggarsGuild",
-                  //        new
-                  //        {
-                  //            fee = service1.GetRandomBeggar(rnd).Fee, practice = service1.GetRandomBeggar(rnd).Practice
-                  //        });
-                  case 0:
-                      e--;
+                    case 0:
+                        var service = new GuildOfFoolsService();
+                        PlayerFoolViewModel pfvm = new PlayerFoolViewModel
+                        {
+                            player = _player,
+                             fool= new Fool(service.GetRandomFool(rnd).Practice, service.GetRandomFool(rnd).Fee )
+                        };
+                        TempData["NewFoolModel"] = pfvm;
+                        return RedirectToAction("Index", "FoolsGuild",
+                            pfvm);
+                    //case 1:
+                    //    var service1 = new GuildOfBeggarsService();
+                    //    return RedirectToAction("Index", "BeggarsGuild",
+                    //        new
+                    //        {
+                    //            fee = service1.GetRandomBeggar(rnd).Fee, practice = service1.GetRandomBeggar(rnd).Practice
+                    //        });
+                    case 1:
                         PlayerThiefModel player = new PlayerThiefModel
                         {
                             player = _player,
@@ -54,14 +58,12 @@ namespace AnkhMorporkWebApp.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

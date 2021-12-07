@@ -16,10 +16,9 @@ namespace AnkhMorporkWebApp.Models
             this.Balance = balance;
         }
 
-        public void GetMoney(decimal amount, ref bool validOutput)
+        public void GetMoney(decimal amount)
         {
             this.Balance += amount;
-            validOutput = true;
         }
 
         public void GiveMoney(decimal amount)

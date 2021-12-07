@@ -1,8 +1,6 @@
-﻿
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AnkhMorporkApp.Guilds;
 using AnkhMorporkWebApp.Models;
-using AnkhMorporkApp.Services.GuildsServices;
 
 namespace AnkhMorporkWebApp.Controllers
 {
@@ -23,7 +21,6 @@ namespace AnkhMorporkWebApp.Controllers
         {
             Player player = new Player(balance);
             player.GiveMoney(sum);
-            Response.Write(@"<script language='javascript'>alert('Details saved successfully')</script>");
             return RedirectToAction("Index", "Home", player);
         }
     }
