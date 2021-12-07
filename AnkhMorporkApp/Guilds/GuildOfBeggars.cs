@@ -45,7 +45,7 @@ namespace AnkhMorporkApp.Guilds
                     var input = Console.ReadLine();
                     if (input == "yes")
                     {
-                        player.GiveMoney(beggar.Fee, ref validInput);
+                       // player.GiveMoney(beggar.Fee, ref validInput);
                     }
                     else if (input == "no")
                     {

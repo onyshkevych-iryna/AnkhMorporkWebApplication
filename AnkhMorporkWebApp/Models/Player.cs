@@ -2,7 +2,7 @@
 
 namespace AnkhMorporkWebApp.Models
 {
-    public class Player
+    public  class Player
     {
         public decimal Balance { get; set; } = 100;
         public bool IsAlive { get; set; } = true;
@@ -22,10 +22,9 @@ namespace AnkhMorporkWebApp.Models
             validOutput = true;
         }
 
-        public void GiveMoney(decimal amount, ref bool validOutput)
+        public void GiveMoney(decimal amount)
         {
             this.Balance -= amount;
-            validOutput = true;
             if (this.Balance <= 0)
             {
                 IsAlive = false;

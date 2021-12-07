@@ -34,5 +34,5 @@ namespace AnkhMorporkWebApp.Controllers
         //     var pw = new PlayerMoneyViewModel();
         //    return View(pw);
         //}
-    }
+    //}
 }
