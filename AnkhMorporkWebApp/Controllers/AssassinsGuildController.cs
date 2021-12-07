@@ -11,14 +11,18 @@ namespace AnkhMorporkWebApp.Controllers
     public class AssassinsGuildController : Controller
     {
         [HttpPost]
-        public ActionResult Index(PlayerAssassinViewModel vm)
+        public ActionResult Index(PlayerAssassinViewModel vm, string action)
         {
-            var guildOfAssassins = new GuildOfAssassins();
+            if (action == "yes")
+            {
+                var guildOfAssassins = new GuildOfAssassins();
                 var assassin = guildOfAssassins.Assassins
                     .FirstOrDefault(a => a.MinReward <= vm.amount && a.MaxReward >= vm.amount && !a.IsOccupied);
                 Player player = new Player(vm.player.Balance);
                 player.GiveMoney(vm.amount);
                 return RedirectToAction("Index", "Home", player);
+            }
+            return RedirectToAction("EndOfGame", "Game");
         }
 
         // GET: AssassinsGuild

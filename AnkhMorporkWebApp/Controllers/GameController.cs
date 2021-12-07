@@ -17,5 +17,10 @@ namespace AnkhMorporkWebApp.Controllers
 
         return RedirectToAction("Index", "Home", _player);
         }
+
+        public ActionResult EndOfGame()
+        {
+            return View();
+        }
     }
 }

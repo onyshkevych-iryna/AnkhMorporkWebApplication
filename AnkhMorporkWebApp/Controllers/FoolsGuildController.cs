@@ -19,5 +19,10 @@ namespace AnkhMorporkWebApp.Controllers
             player.GetMoney(sum);
             return RedirectToAction("Index", "Home", player);
         }
+
+        public ActionResult No()
+        {
+            return RedirectToAction("EndOfGame", "Game");
+        }
     }
 }

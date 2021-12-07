@@ -183,11 +183,10 @@
     <Content Include="Views\AssassinsGuild\Index.cshtml" />
     <Content Include="Views\AssassinsGuild\About.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
+    <Content Include="Views\Game\EndOfGame.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Game\" />
-    <Folder Include="Views\PlayerFool\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
