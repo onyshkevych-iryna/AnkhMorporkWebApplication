@@ -5,7 +5,7 @@
 }
 <p>Current balance:</p> @Model.player.Balance
 <h2>@Model.slogan</h2>
-@using (Html.BeginForm("Index", "AssassinsGuild", FormMethod.Post))
+@using (Html.BeginForm("Input", "AssassinsGuild", FormMethod.Post))
 {
     <table>
         <tr>
@@ -20,5 +20,4 @@
     </table>
     @*@Html.ActionLink("Yes", "Yes", "FoolsGuild", new { balance = Model.player.Balance }, null)*@
     <button name="action" value="yes">Yes</button>
-    <button name="action" value="skip">Skip</button>
 }

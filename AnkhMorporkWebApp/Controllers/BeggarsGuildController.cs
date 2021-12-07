@@ -1,7 +1,5 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AnkhMorporkWebApp.Models;
-using Player = AnkhMorporkApp.Models.Player;
 
 namespace AnkhMorporkWebApp.Controllers
 {
@@ -17,13 +15,18 @@ namespace AnkhMorporkWebApp.Controllers
         public ActionResult Yes(decimal sum, decimal balance)
         {
             Player player = new Player(balance);
-            player.GiveMoney(sum);
-            return RedirectToAction("Index", "Home", player);
+            
+                player.GiveMoney(sum);
+                return RedirectToAction("Index", "Home", player);
+            
         }
 
-        public ActionResult No()
+        public ActionResult No(Player player)
         {
-            return RedirectToAction("EndOfGame", "Game");
+
+            string message = player.Skip(typeof(Beggar));
+
+            return RedirectToAction("EndOfGame", "Game", new {slogan = message});
         }
     }
 }

@@ -8,4 +8,4 @@
 <h2>@Model.slogan @Model.thief.Fee @Model.slogans</h2>
 
 @Html.ActionLink("Yes", "Yes", "ThievesGuild", new { sum = Model.thief.Fee, balance = Model.player.Balance }, null)
-@Html.ActionLink("No", "No", "ThievesGuild")
+@Html.ActionLink("No", "No", "ThievesGuild", Model.player, null)

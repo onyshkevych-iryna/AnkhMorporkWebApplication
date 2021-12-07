@@ -1,0 +1,14 @@
+﻿@using AnkhMorporkWebApp.Models
+@model AnkhMorporkWebApp.Models.PlayerAssassinViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<p>Current balance:</p> @Model.player.Balance
+<h2>@Model.slogan</h2>
+
+
+    @Html.ActionLink("Yes", "About", "AssassinsGuild", new { amount = Model.player.Balance }, null)
+@Html.ActionLink("No", "Skip", "AssassinsGuild",Model.player,null)
+
+@*<button name="action" value="yes">Yes</button>
+    <button name="action" value="skip">Skip</button>*@

@@ -1,12 +1,11 @@
 ﻿using System.Web.Mvc;
 using AnkhMorporkWebApp.Models;
-using Fool = AnkhMorporkApp.Models.Fool;
 
 namespace AnkhMorporkWebApp.Controllers
 {
     public class FoolsGuildController : Controller
     {
-        // GET: FoolsGuild
+
         public ActionResult Index()
         {
             var model = TempData["NewFoolModel"] as PlayerFoolViewModel;
@@ -16,13 +15,32 @@ namespace AnkhMorporkWebApp.Controllers
         public ActionResult Yes(decimal sum, decimal balance)
         {
             Player player = new Player(balance);
+
             player.GetMoney(sum);
             return RedirectToAction("Index", "Home", player);
+
         }
 
-        public ActionResult No()
+        public ActionResult No(Player player)
         {
-            return RedirectToAction("EndOfGame", "Game");
+
+            string message = player.Skip(typeof(Fool));
+
+
+            return RedirectToAction("Index", "Home", player );
         }
+
+        //public ActionResult Reject(string slogan, decimal amount)
+        //{
+        //    Player _player = new Player(amount);
+        //    MessageViewModel mvm = new MessageViewModel
+        //    {
+        //        Message = slogan,
+        //        player = _player
+        //    };
+
+        //    return View(mvm);
+        //}
+
     }
 }

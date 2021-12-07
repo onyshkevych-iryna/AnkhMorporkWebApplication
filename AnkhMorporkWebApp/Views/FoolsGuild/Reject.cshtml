@@ -4,8 +4,5 @@
     ViewBag.Title = "EndOfGame";
 }
 
-<h2>EndOfGame</h2>
-@if (!Model.Message.IsEmpty())
-{
-    @Model.Message
-}
+<h2>@Model.Message</h2>
+@Html.ActionLink("Go on", "Index", "Home",Model.player, null)

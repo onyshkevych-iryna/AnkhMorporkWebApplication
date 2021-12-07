@@ -53,21 +53,20 @@ namespace AnkhMorporkApp.Models
             return false;
         }
 
-        public void Skip(Type enemy)
+        public string Skip(Type enemy)
         {
             switch (enemy)
             {
                 case var _ when (enemy.Equals(typeof(Thief)) || enemy.Equals(typeof(Assassin))):
                     IsAlive = false;
-                    //ConsoleColorChanger.ChangeColor("You're killed! Game is over.", ConsoleColor.Red);
-                    break;
+                    return "You're killed! Game is over.";
                 case var _ when enemy.Equals(typeof(Beggar)):
                     IsAlive = false;
-                    //ConsoleColorChanger.ChangeColor("You're chased to death! Game is over.", ConsoleColor.Red);
-                    break;
+                    return "You're chased to death! Game is over.";
                 case var _ when enemy.Equals(typeof(Fool)):
-                   // ConsoleColorChanger.ChangeColor("You rejected the offer.", ConsoleColor.Red);
-                    break;
+                   return "You rejected the offer.";
+                default:
+                    return "";
             }
         }
     }
