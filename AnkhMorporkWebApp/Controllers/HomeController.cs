@@ -13,7 +13,7 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Index(Player _player)
         {
-            const int _maxNumberOfGuilds = 3;
+            const int _maxNumberOfGuilds = 4;
           var rnd = new Random();
           var random = rnd.Next(0, _maxNumberOfGuilds);
           if (_player.IsAlive)
@@ -46,11 +46,13 @@ namespace AnkhMorporkWebApp.Controllers
                             thief = new Thief()
                         };
                         TempData["NewCustomer"] = player;
-
                         return RedirectToAction("Index", "ThievesGuild");
-                  //case 3:
-                  //    return RedirectToAction("About", "AssassinsGuild");
-              }
+                    case 3:
+                        PlayerAssassinViewModel pavm = new PlayerAssassinViewModel();
+                        pavm.player = _player;
+                        TempData["NewAssassinModel"] = pavm;
+                        return RedirectToAction("About", "AssassinsGuild");
+                }
           }
                  
            

@@ -1,17 +1,27 @@
 ﻿@using AnkhMorporkWebApp.Models
-@model AnkhMorporkWebApp.Models.PlayerMoneyViewModel
+@model AnkhMorporkWebApp.Models.PlayerAssassinViewModel
 @{
     ViewBag.Title = "Index";
 }
-
+@Model.slogan
+<p>Current balance:</p>
+@Model.player.Balance
 <h2>Assassins</h2>
-<form action="@Url.Action("Index", "AssassinsGuild")">
-    <input id="Index1" name="Index" type="text" />
-    <input id="Sum" type="submit" value="Cauta" />
-</form>
+@using (Html.BeginForm("Index", "AssassinsGuild", FormMethod.Post))
+{
+    <table>
+        <tr>
+            @Html.HiddenFor(m => m.player.Balance)
+            <td>
+                <p>Input sum</p>
+            </td>
+            <td><input type="number" name="amount" /> </td>
+        </tr>
+        @*<tr><td><input type="submit" value="Enter" /> </td>
+            <td></td></tr>*@
+    </table>
+    @*@Html.ActionLink("Yes", "Yes", "FoolsGuild", new { balance = Model.player.Balance }, null)*@
 
-
-@*//@Html.ActionLink("Input", "Index", "AssassinsGuild", new { amount = Model. }, null)*@
-@*<tr><td><input type="submit" value="Input" /> </td>*@
-<button name="No">No</button>
-@*<td></td></tr>*@
+    <button name="action" value="add">Добавить</button>
+    <button name="action" value="delete">Удалить</button>
+}

@@ -8,6 +8,7 @@
 <h2>Beggars</h2>
 <p>Press Yes to</p>
 @Model.begar.Fee
+<p>Current balance:</p>
 @Model.player.Balance
 @Html.ActionLink("Yes", "Yes", "BeggarsGuild", new { sum = Model.begar.Fee, balance = Model.player.Balance }, null)
 
