@@ -7,8 +7,7 @@ namespace AnkhMorporkWebApp.Controllers
 {
     public class AssassinsGuildController : Controller
     {
-
-
+        private ApplicationContext db = new ApplicationContext();
         // GET: AssassinsGuild
         public ActionResult Skip(Player player)
         {
@@ -27,8 +26,9 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Input(PlayerAssassinViewModel vm)
         {
-            var guildOfAssassins = new GuildOfAssassins();
-            var assassin = guildOfAssassins.Assassins
+            //var guildOfAssassins = new GuildOfAssassins();
+            var guildOfAssassins = db.Assassins.ToList();
+            var assassin = guildOfAssassins
                 .FirstOrDefault(a => a.MinReward <= vm.amount && a.MaxReward >= vm.amount && !a.IsOccupied);
             vm.player.GiveMoney(vm.amount);
             Player player = new Player(vm.player.Balance);

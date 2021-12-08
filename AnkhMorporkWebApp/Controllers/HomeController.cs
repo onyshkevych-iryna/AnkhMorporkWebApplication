@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using AnkhMorporkWebApp.Models;
-using AnkhMorporkApp.Services.GuildsServices;
+using AnkhMorporkWebApp.Services.GuildsServices;
 
 namespace AnkhMorporkWebApp.Controllers
 {
@@ -25,7 +25,9 @@ namespace AnkhMorporkWebApp.Controllers
                         PlayerFoolViewModel pfvm = new PlayerFoolViewModel
                         {
                             player = _player,
-                            fool = new Fool(service.GetRandomFool(rnd).Practice, service.GetRandomFool(rnd).Fee)
+                            fool = new Fool{
+                                Practice = service.GetRandomFool(rnd).Practice,
+                                Fee = service.GetRandomFool(rnd).Fee}
                         };
                         TempData["NewFoolModel"] = pfvm;
                         return RedirectToAction("Index", "FoolsGuild",
@@ -35,7 +37,11 @@ namespace AnkhMorporkWebApp.Controllers
                         PlayerBeggarViewModel pbvm = new PlayerBeggarViewModel
                         {
                             player = _player,
-                            begar = new Beggar(service1.GetRandomBeggar(rnd).Practice, service1.GetRandomBeggar(rnd).Fee)
+                            begar = new Beggar
+                            {
+                                Practice = service1.GetRandomBeggar(rnd).Practice,
+                                Fee = service1.GetRandomBeggar(rnd).Fee
+                            }
                         };
                         TempData["NewBeggarModel"] = pbvm;
                         return RedirectToAction("Index", "BeggarsGuild");
