@@ -5,10 +5,13 @@
 }
 
 <h2> Welcome to @Model.pub.Name</h2>
-@if (Model.player.BeerAmount<=Model.pub.MaxAmountOfBeerForPlayer){
-@Html.ActionLink("Get Beer", "GetBeer", "Pub", Model.player, null)
+@if (Model.player.BeerAmount < Model.pub.MaxAmountOfBeerForPlayer)
+{
+    @Html.ActionLink("Get Beer", "GetBeer", "Pub", Model.player, null)
 }
 else
 {
     <h2>There is no available beer for you!</h2>
 }
+
+@Html.ActionLink("Exit", "Index", "Home", Model.player, null)

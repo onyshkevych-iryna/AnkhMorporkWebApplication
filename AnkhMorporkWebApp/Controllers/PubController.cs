@@ -24,8 +24,12 @@ namespace AnkhMorporkWebApp.Controllers
         {
             Pub pub = new Pub();
             if (player.BeerAmount < pub.MaxAmountOfBeerForPlayer)
+            {
                 player.BeerAmount++;
-            return RedirectToAction("Index");
+                player.Balance -= pub.Price;
+            }
+
+            return RedirectToAction("Index",player);
         }
     }
 }

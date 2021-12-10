@@ -13,12 +13,24 @@ namespace AnkhMorporkWebApp.Controllers
             return View(model);
         }
 
-        public ActionResult Yes(decimal sum, decimal balance)
+        public ActionResult Yes(decimal balance, decimal fee)
         {
             Player player = new Player(balance);
-            
-                player.GiveMoney(sum);
-                return RedirectToAction("Index", "Home", player);
+            if (fee != 0)
+            {
+                player.GiveMoney(fee);
+            }
+            else
+            {
+                if(player.BeerAmount!=0) 
+                    player.BeerAmount--;
+                else
+                {
+                    string message = player.Skip(typeof(Beggar));
+                    return RedirectToAction("EndOfGame", "Game", new { slogan = message });
+                }
+            }
+            return RedirectToAction("Index", "Home", player);
             
         }
 
