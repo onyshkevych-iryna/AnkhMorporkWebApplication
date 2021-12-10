@@ -1,11 +1,26 @@
-﻿@using AnkhMorporkWebApp.Models
+﻿@using System.Diagnostics.Eventing.Reader
+@using AnkhMorporkWebApp.Models
 @model AnkhMorporkWebApp.Models.PlayerBeggarViewModel
 @{
     ViewBag.Title = "Index";
 }
 <p>Current balance:</p> @Model.player.Balance
 
-<h2>@Model.slogan @Model.begar.Fee @Model.slogans</h2>
-@Html.ActionLink("Yes", "Yes", "BeggarsGuild", new { sum = Model.begar.Fee, balance = Model.player.Balance }, null)
+<h2>@Model.slogan @if (Model.begar.Fee == 0)
+                  {
+                      @Model.sloganBeer
+                  }
+                  else
+                  {
+                      @Model.sloganpay
+                      @Model.begar.Fee
+                  }
+                  }  @Model.slogans</h2>
+@Html.ActionLink("Yes", "Yes", "BeggarsGuild",
+    new {
+       balance = Model.player.Balance,
+        fee = Model.begar.Fee
+    }
+    , null)
 @Html.ActionLink("No", "No", "BeggarsGuild", Model.player, null)
 @Html.ActionLink("Get Beer", "Index", "Pub", Model.player, null)

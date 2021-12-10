@@ -33,7 +33,7 @@ namespace AnkhMorporkWebApp
                 new Beggar {Practice = "People Who Call Other People Jimmy", Fee = 0.5m},
                 new Beggar {Practice = "People Who Need Eightpence For A Meal", Fee = 0.08m},
                 new Beggar {Practice = "People Who Need Tuppence For A Cup Of Tea", Fee = 0.02m},
-                new Beggar {Practice = "People Who Need Tuppence For A Cup Of Tea", Fee = 0.02m}
+                new Beggar {Practice = "People With Placards Saying \"Why lie? I need a beer\"", Fee = 0}
             };
             beggars.ForEach(s => context.Beggars.Add(s));
             context.SaveChanges();

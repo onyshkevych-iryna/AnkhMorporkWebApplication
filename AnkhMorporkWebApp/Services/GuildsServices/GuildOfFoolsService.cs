@@ -13,7 +13,7 @@ namespace AnkhMorporkWebApp.Services.GuildsServices
         {
             //var guildOfFools = new GuildOfFools();
             var fools = db.Fools.ToList();
-            return fools[rnd.Next(1, fools.Count + 1)];
+            return fools[rnd.Next(1, fools.Count)];
         }
     }
 }

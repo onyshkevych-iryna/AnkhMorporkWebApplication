@@ -13,7 +13,7 @@ namespace AnkhMorporkWebApp.Services.GuildsServices
         public Beggar GetRandomBeggar(Random rnd)
         {
             var beggars = db.Beggars.ToList();
-            return beggars[rnd.Next(1, beggars.Count + 1)];
+            return beggars[rnd.Next(1, beggars.Count)];
         }
     }
 }
