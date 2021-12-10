@@ -5,6 +5,7 @@ namespace AnkhMorporkWebApp.Controllers
 {
     public class BeggarsGuildController : Controller
     {
+
         // GET: BeggarssGuild
         public ActionResult Index()
         {
