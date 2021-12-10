@@ -132,6 +132,7 @@
     <Compile Include="Controllers\FoolsGuildController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PubController.cs" />
     <Compile Include="Controllers\ThievesGuildController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,7 +147,9 @@
     <Compile Include="Models\PlayerAssassinViewModel.cs" />
     <Compile Include="Models\PlayerBeggarViewModel.cs" />
     <Compile Include="Models\PlayerFoolViewModel.cs" />
+    <Compile Include="Models\PlayerPubViewModel.cs" />
     <Compile Include="Models\PlayerThiefModel.cs" />
+    <Compile Include="Models\Pub.cs" />
     <Compile Include="Models\Thief.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GuildsServices\GuildOfBeggarsService.cs" />
@@ -195,6 +198,7 @@
     <Content Include="Views\Game\EndOfGame.cshtml" />
     <Content Include="Views\AssassinsGuild\Question.cshtml" />
     <Content Include="Views\FoolsGuild\Reject.cshtml" />
+    <Content Include="Views\Pub\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

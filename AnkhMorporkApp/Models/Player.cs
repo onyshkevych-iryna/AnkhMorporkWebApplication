@@ -6,6 +6,7 @@ namespace AnkhMorporkApp.Models
     {
         public decimal Balance { get; set; } = 100;
         public bool IsAlive { get; set; } = true;
+        public int BearAmount { get; set; }
 
         public Player()
         {
