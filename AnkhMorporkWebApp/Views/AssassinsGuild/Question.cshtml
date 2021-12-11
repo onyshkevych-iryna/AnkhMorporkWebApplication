@@ -1,14 +1,24 @@
 ﻿@using AnkhMorporkWebApp.Models
 @model AnkhMorporkWebApp.Models.PlayerAssassinViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Player meets an Assassin";
 }
-<p>Current balance:</p> @Model.player.Balance
-<h2>@Model.slogan</h2>
-<img src="@Url.Content("~/Content/Images/assassin1.png")" />
-@Html.ActionLink("Yes", "About", "AssassinsGuild", new { amount = Model.player.Balance }, new { @class = "btn btn-outline-primary" })
-@Html.ActionLink("No", "Skip", "AssassinsGuild", Model.player, new { @class = "btn btn-outline-secondary" })
 
-@*<button name="action" value="yes">Yes</button>
-    <button name="action" value="skip">Skip</button>*@
-@Html.ActionLink("Get Beer", "Index", "Pub", Model.player, new { @class = "btn btn-outline-warning" })
+<div class="toast show" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">@Model.sloganStart </strong>
+        <img src="@Url.Content("~/Content/Images/assassin1.png")" style="width: 200px; height: 200px;" />
+        <small>
+            Current balance: @Model.player.Balance
+        </small>
+    </div>
+    <div class="toast-body">
+        <div class="card-body">
+            @Model.sloganEnd
+            @Html.ActionLink("Yes", "About", "AssassinsGuild", new {amount = Model.player.Balance}, new {@class = "btn btn-outline-primary"})
+            @Html.ActionLink("No", "Skip", "AssassinsGuild", Model.player, new {@class = "btn btn-outline-secondary"})
+            @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new {@class = "btn btn-outline-warning"})
+        </div>
+    </div>
+</div>
+

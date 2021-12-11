@@ -11,8 +11,9 @@ namespace AnkhMorporkWebApp.Models
         public Player player { get; set; }
         public Assassin Assassin { get; set; }
         [Required(ErrorMessage = "Amount is required!")]
-         public decimal amount { get; set; }
-        public string slogan { get; set; } = "Someone wants to kill you! Input sum of money to make a contract with an assassin. " +
-                                             "Or push \"no\" to skip.";
+        public decimal amount { get; set; }
+        public string sloganStart { get; set; } = "Someone wants to kill you!";
+        public string sloganEnd { get; set; } = "Select \"yes\" to make a contract with an assassin. " +
+                                             "Or \"no\" to skip.";
     }
 }

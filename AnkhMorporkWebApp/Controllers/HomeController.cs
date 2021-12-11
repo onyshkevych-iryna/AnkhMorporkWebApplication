@@ -7,9 +7,9 @@ namespace AnkhMorporkWebApp.Controllers
 {
     public class HomeController : Controller
     {
-       private GuildOfBeggarsService bservice = new GuildOfBeggarsService();
-       private GuildOfFoolsService fservice = new GuildOfFoolsService();
-       private GuildOfThievesService tservice = new GuildOfThievesService();
+       private GuildOfBeggarsService _beggarService = new GuildOfBeggarsService();
+       private GuildOfFoolsService _foolService = new GuildOfFoolsService();
+       private GuildOfThievesService _thiefservice = new GuildOfThievesService();
 
        public ActionResult Index(Player _player)
        {
@@ -21,20 +21,20 @@ namespace AnkhMorporkWebApp.Controllers
               switch (random)
               {
                     case 0:
-                        TempData["NewFoolModel"] = fservice.GetRandomFool(_player, rnd);
+                        TempData["NewFoolModel"] = _foolService.GetRandomFool(_player, rnd);
                         return RedirectToAction("Index", "FoolsGuild");
                     case 1:
-                        TempData["NewBeggarModel"] = bservice.GetRandomBeggar(_player, rnd);
+                        TempData["NewBeggarModel"] = _beggarService.GetRandomBeggar(_player, rnd);
                         return RedirectToAction("Index", "BeggarsGuild");
                     case 2:
-                        TempData["NewCustomer"] = tservice.GetThieve(_player);
+                        TempData["NewCustomer"] = _thiefservice.GetThieve(_player);
                         return RedirectToAction("Index", "ThievesGuild");
                     case 3:
                         PlayerAssassinViewModel pavm = new PlayerAssassinViewModel();
                         pavm.player = _player;
                         TempData["NewAssassinModel"] = pavm;
                         return RedirectToAction("Question", "AssassinsGuild");
-              }
+                }
           }
           return RedirectToAction("EndOfGame", "Game");
        }

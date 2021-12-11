@@ -2,24 +2,38 @@
 @using AnkhMorporkWebApp.Models
 @model AnkhMorporkWebApp.Models.PlayerBeggarViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Player meets a beggar";
 }
-<p>Current balance:</p> @Model.player.Balance
-<img src="@Url.Content("~/Content/Images/beggar.png")" />
-<h2>@Model.slogan @if (Model.begar.Fee == 0)
-                  {
-                      @Model.sloganBeer
-                  }
-                  else
-                  {
-                      @Model.sloganpay
-                      @Model.begar.Fee
-                  }  @Model.slogans</h2>
-@Html.ActionLink("Yes", "Yes", "BeggarsGuild",
-    new {
-        balance = Model.player.Balance,
-        fee = Model.begar.Fee
-    }
-    , new { @class = "btn btn-outline-primary" })
-@Html.ActionLink("No", "No", "BeggarsGuild", Model.player, new { @class = "btn btn-outline-danger" })
-@Html.ActionLink("Get Beer", "Index", "Pub", Model.player, new { @class = "btn btn-outline-warning"})
+
+<div class="toast show" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <strong class="me-auto">@Model.sloganStart </strong>
+        <img src="@Url.Content("~/Content/Images/beggar.png")" style="width: 200px; height: 200px;" />
+        <small>
+            Current balance: @Model.player.Balance
+        </small>
+    </div>
+    <div class="toast-body">
+        @if (Model.begar.Fee == 0)
+        {
+            @Model.sloganToShareBeer
+        }
+        else
+        {
+            @Model.sloganToPay
+            @Model.begar.Fee
+        }
+        @Model.sloganEnd
+        <div class="card-body">
+            @Html.ActionLink("Yes", "Yes", "BeggarsGuild",
+                new
+                {
+                    balance = Model.player.Balance,
+                    fee = Model.begar.Fee
+                }
+                , new {@class = "btn btn-outline-primary"})
+            @Html.ActionLink("No", "No", "BeggarsGuild", Model.player, new {@class = "btn btn-outline-danger"})
+            @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new {@class = "btn btn-outline-warning"})
+        </div>
+    </div>
+</div>
