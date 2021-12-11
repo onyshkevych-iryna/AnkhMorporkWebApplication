@@ -5,11 +5,10 @@
 }
 <p>Current balance:</p> @Model.player.Balance
 <h2>@Model.slogan</h2>
-
-
-@Html.ActionLink("Yes", "About", "AssassinsGuild", new { amount = Model.player.Balance }, null)
-@Html.ActionLink("No", "Skip", "AssassinsGuild", Model.player, null)
+<img src="@Url.Content("~/Content/Images/assassin1.png")" />
+@Html.ActionLink("Yes", "About", "AssassinsGuild", new { amount = Model.player.Balance }, new { @class = "btn btn-outline-primary" })
+@Html.ActionLink("No", "Skip", "AssassinsGuild", Model.player, new { @class = "btn btn-outline-secondary" })
 
 @*<button name="action" value="yes">Yes</button>
     <button name="action" value="skip">Skip</button>*@
-@Html.ActionLink("Get Beer", "Index", "Pub", Model.player, null)
+@Html.ActionLink("Get Beer", "Index", "Pub", Model.player, new { @class = "btn btn-outline-warning" })

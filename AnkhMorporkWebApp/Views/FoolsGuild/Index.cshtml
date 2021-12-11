@@ -6,6 +6,7 @@
 <p>Current balance:</p> @Model.player.Balance
 
 <h2>@Model.slogan @Model.fool.Practice @Model.slogans @Model.fool.Fee @Model.slogant</h2>
-@Html.ActionLink("Yes", "Yes", "FoolsGuild", new { sum = Model.fool.Fee, balance = Model.player.Balance }, null)
-@Html.ActionLink("No", "No", "FoolsGuild", Model.player, null)
-@Html.ActionLink("Get Beer", "Index", "Pub", Model.player, null)
+<img src="@Url.Content("~/Content/Images/fool.png")" />
+@Html.ActionLink("Yes", "Yes", "FoolsGuild", new { sum = Model.fool.Fee, balance = Model.player.Balance }, new { @class = "btn btn-outline-primary" })
+@Html.ActionLink("No", "No", "FoolsGuild", Model.player, new { @class = "btn btn-outline-secondary" })
+@Html.ActionLink("Get Beer", "Index", "Pub", Model.player, new { @class = "btn btn-outline-warning" })

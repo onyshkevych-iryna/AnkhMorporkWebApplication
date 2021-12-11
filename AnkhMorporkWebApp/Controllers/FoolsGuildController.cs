@@ -15,18 +15,13 @@ namespace AnkhMorporkWebApp.Controllers
         public ActionResult Yes(decimal sum, decimal balance)
         {
             Player player = new Player(balance);
-
             player.GetMoney(sum);
             return RedirectToAction("Index", "Home", player);
-
         }
 
         public ActionResult No(Player player)
         {
-
             string message = player.Skip(typeof(Fool));
-
-
             return RedirectToAction("Index", "Home", player );
         }
 
