@@ -7,12 +7,12 @@ namespace AnkhMorporkWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-        {
-        }
+       private GuildOfBeggarsService bservice = new GuildOfBeggarsService();
+       private GuildOfFoolsService fservice = new GuildOfFoolsService();
+       private GuildOfThievesService tservice = new GuildOfThievesService();
 
-        public ActionResult Index(Player _player)
-        {
+       public ActionResult Index(Player _player)
+       {
           const int _maxNumberOfGuilds = 4;
           var rnd = new Random();
           var random = rnd.Next(0, _maxNumberOfGuilds);
@@ -21,59 +21,27 @@ namespace AnkhMorporkWebApp.Controllers
               switch (random)
               {
                     case 0:
-                        var service = new GuildOfFoolsService();
-                        PlayerFoolViewModel pfvm = new PlayerFoolViewModel
-                        {
-                            player = _player,
-                            fool = new Fool{
-                                Practice = service.GetRandomFool(rnd).Practice,
-                                Fee = service.GetRandomFool(rnd).Fee}
-                        };
-                        TempData["NewFoolModel"] = pfvm;
-                        return RedirectToAction("Index", "FoolsGuild",
-                            pfvm);
+                        TempData["NewFoolModel"] = fservice.GetRandomFool(_player, rnd);
+                        return RedirectToAction("Index", "FoolsGuild");
                     case 1:
-                        var service1 = new GuildOfBeggarsService();
-                        PlayerBeggarViewModel pbvm = new PlayerBeggarViewModel
-                        {
-                            player = _player,
-                            begar = new Beggar
-                            {
-                                Practice = service1.GetRandomBeggar(rnd).Practice,
-                                Fee = service1.GetRandomBeggar(rnd).Fee
-                            }
-                        };
-                        TempData["NewBeggarModel"] = pbvm;
+                        TempData["NewBeggarModel"] = bservice.GetRandomBeggar(_player, rnd);
                         return RedirectToAction("Index", "BeggarsGuild");
                     case 2:
-                        PlayerThiefModel player = new PlayerThiefModel
-                        {
-                            player = _player,
-                            thief = new Thief()
-                        };
-                        TempData["NewCustomer"] = player;
+                        TempData["NewCustomer"] = tservice.GetThieve(_player);
                         return RedirectToAction("Index", "ThievesGuild");
                     case 3:
                         PlayerAssassinViewModel pavm = new PlayerAssassinViewModel();
                         pavm.player = _player;
                         TempData["NewAssassinModel"] = pavm;
                         return RedirectToAction("Question", "AssassinsGuild");
-                }
+              }
           }
-                 
-           
-          return Content(random.ToString());
-        }
+          return RedirectToAction("EndOfGame", "Game");
+       }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
             return View();
         }
     }

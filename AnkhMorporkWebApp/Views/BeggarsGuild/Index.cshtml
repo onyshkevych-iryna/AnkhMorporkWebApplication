@@ -5,7 +5,7 @@
     ViewBag.Title = "Index";
 }
 <p>Current balance:</p> @Model.player.Balance
-
+<img src="@Url.Content("~/Content/Images/beggar.png")" />
 <h2>@Model.slogan @if (Model.begar.Fee == 0)
                   {
                       @Model.sloganBeer
@@ -14,13 +14,12 @@
                   {
                       @Model.sloganpay
                       @Model.begar.Fee
-                  }
                   }  @Model.slogans</h2>
 @Html.ActionLink("Yes", "Yes", "BeggarsGuild",
     new {
-       balance = Model.player.Balance,
+        balance = Model.player.Balance,
         fee = Model.begar.Fee
     }
-    , null)
-@Html.ActionLink("No", "No", "BeggarsGuild", Model.player, null)
-@Html.ActionLink("Get Beer", "Index", "Pub", Model.player, null)
+    , new { @class = "btn btn-outline-primary" })
+@Html.ActionLink("No", "No", "BeggarsGuild", Model.player, new { @class = "btn btn-outline-danger" })
+@Html.ActionLink("Get Beer", "Index", "Pub", Model.player, new { @class = "btn btn-outline-warning"})

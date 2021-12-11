@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using AnkhMorporkApp.Guilds;
-using AnkhMorporkWebApp;
 using AnkhMorporkWebApp.Models;
 
 namespace AnkhMorporkWebApp.Services.GuildsServices
@@ -10,10 +8,20 @@ namespace AnkhMorporkWebApp.Services.GuildsServices
     {
         private ApplicationContext db = new ApplicationContext();
 
-        public Beggar GetRandomBeggar(Random rnd)
+        public PlayerBeggarViewModel GetRandomBeggar(Player player, Random rnd)
         {
             var beggars = db.Beggars.ToList();
-            return beggars[rnd.Next(1, beggars.Count)];
+            Beggar rBeggar = beggars[rnd.Next(1, beggars.Count)];
+            PlayerBeggarViewModel pbvm = new PlayerBeggarViewModel
+            {
+                player = player,
+                begar = new Beggar
+                {
+                    Practice = rBeggar.Practice,
+                    Fee = rBeggar.Fee
+                }
+            };
+            return pbvm;
         }
     }
 }

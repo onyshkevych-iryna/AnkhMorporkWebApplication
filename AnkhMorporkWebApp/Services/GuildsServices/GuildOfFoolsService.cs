@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using AnkhMorporkWebApp;
 using AnkhMorporkWebApp.Models;
 
 namespace AnkhMorporkWebApp.Services.GuildsServices
@@ -9,11 +8,20 @@ namespace AnkhMorporkWebApp.Services.GuildsServices
     {
         private ApplicationContext db = new ApplicationContext();
 
-        public Fool GetRandomFool(Random rnd)
+        public PlayerFoolViewModel GetRandomFool(Player _player, Random rnd)
         {
-            //var guildOfFools = new GuildOfFools();
             var fools = db.Fools.ToList();
-            return fools[rnd.Next(1, fools.Count)];
+            Fool fool = fools[rnd.Next(1, fools.Count)];
+            PlayerFoolViewModel pfvm = new PlayerFoolViewModel
+            {
+                player = _player,
+                fool = new Fool
+                {
+                    Practice = fool.Practice,
+                    Fee = fool.Fee
+                }
+            };
+            return pfvm;
         }
     }
 }
