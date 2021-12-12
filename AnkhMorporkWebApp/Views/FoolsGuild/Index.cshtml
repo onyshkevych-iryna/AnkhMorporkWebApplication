@@ -4,10 +4,10 @@
     ViewBag.Title = "Player meets a Fool";
 }
 
-<div class="toast show"  aria-live="assertive" aria-atomic="true"  >
+<div class="toast show" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
         <strong class="me-auto">@Model.sloganStart </strong>
-        <img src="@Url.Content("~/Content/Images/fool.png")" style="width: 200px; height: 200px;" />
+        <img src="@Url.Content("~/Content/Images/fool.png")" style="width: 200px; height: 200px;"/>
         <small>
             Current balance: @Model.player.Balance
         </small>
@@ -15,7 +15,9 @@
     <div class="toast-body">
         @Model.sloganFirstPart @Model.fool.Practice @Model.sloganSecondPart @Model.fool.Fee @Model.sloganEnd
         <div class="card-body">
-            @Html.ActionLink("Yes", "Yes", "FoolsGuild", new {sum = Model.fool.Fee, balance = Model.player.Balance}, new {@class = "btn btn-outline-primary"})
+            @Html.ActionLink("Yes", "Yes", "FoolsGuild", new {sum = Model.fool.Fee, 
+                balance = Model.player.Balance, beerAmount = Model.player.BeerAmount},
+                new {@class = "btn btn-outline-primary"})
             @Html.ActionLink("No", "No", "FoolsGuild", Model.player, new {@class = "btn btn-outline-secondary"})
             @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new {@class = "btn btn-outline-warning"})
         </div>

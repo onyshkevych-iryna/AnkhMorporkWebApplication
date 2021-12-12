@@ -1,11 +1,15 @@
 ﻿using System.Web.Mvc;
-using AnkhMorporkApp.Guilds;
+using AnkhMorporkWebApp.Guilds;
 using AnkhMorporkWebApp.Models;
 
 namespace AnkhMorporkWebApp.Controllers
 {
     public class ThievesGuildController : Controller
     {
+        private GuildOfThieves guild = new GuildOfThieves();
+        private Player player;
+        private Thief thief = new Thief();
+
         public ActionResult Index()
         {
             var model = TempData["NewCustomer"] as PlayerThiefModel;
@@ -13,19 +17,18 @@ namespace AnkhMorporkWebApp.Controllers
             return View(model);
         }
 
-        public ActionResult Yes(decimal sum, decimal balance)
+        public ActionResult Yes(string action, Player player)
         {
-            Player player = new Player(balance);
-            if (player.IsOutOfMoney(sum))
-                return RedirectToAction("EndOfGame", "Game");
-            player.GiveMoney(sum);
-            return RedirectToAction("Index", "Home", player);
+            player = guild.InteractionWithPlayer(action,player.Balance,player.BeerAmount, thief.Fee, out string controller, out string actionName,
+                out string message);
+            return RedirectToAction(actionName, controller, player);
         }
 
-        public ActionResult No(Player player)
+        public ActionResult No(string action, Player player)
         {
-            string message = player.Skip(typeof(Thief));
-            return RedirectToAction("EndOfGame", "Game", new { slogan = message });
+            guild.InteractionWithPlayer(action, 0,0, 0, out string con, out string act,
+                out string message);
+            return RedirectToAction(act, con, new { slogan = message });
         }
     }
 }

@@ -1,42 +1,32 @@
 ﻿using System.Web.Mvc;
+using AnkhMorporkWebApp.Guilds;
 using AnkhMorporkWebApp.Models;
 
 namespace AnkhMorporkWebApp.Controllers
 {
     public class BeggarsGuildController : Controller
     {
+        private GuildOfBeggars guild = new GuildOfBeggars();
+        private Player player;
+
         public ActionResult Index()
         {
             var model = TempData["NewBeggarModel"] as PlayerBeggarViewModel;
             return View(model);
         }
 
-        public ActionResult Yes(decimal balance, decimal fee)
+        public ActionResult Yes(string action, int beerAmount, decimal balance, decimal fee)
         {
-            Player player = new Player(balance);
-            if (fee != 0)
-            {
-                if (player.IsOutOfMoney(fee))
-                    return RedirectToAction("EndOfGame", "Game");
-                player.GiveMoney(fee);
-            }
-            else
-            {
-                if(player.BeerAmount!=0) 
-                    player.BeerAmount--;
-                else
-                {
-                    string message = player.Skip(typeof(Beggar));
-                    return RedirectToAction("EndOfGame", "Game", new { slogan = message });
-                }
-            }
-            return RedirectToAction("Index", "Home", player);
+            player = guild.InteractionWithPlayer(action, balance, beerAmount, fee, out string controller, out string actionName,
+                out string message);
+            return RedirectToAction(actionName, controller, player);
         }
 
-        public ActionResult No(Player player)
+        public ActionResult No(string action, Player player)
         {
-            string message = player.Skip(typeof(Beggar));
-            return RedirectToAction("EndOfGame", "Game", new {slogan = message});
+            guild.InteractionWithPlayer(action, 0, 0, 0, out string con, out string act,
+                out string message);
+            return RedirectToAction(act, con, new { slogan = message });
         }
     }
 }

@@ -15,9 +15,11 @@
     <div class="toast-body">
         <div class="card-body">
             @Model.sloganEnd
-            @Html.ActionLink("Yes", "About", "AssassinsGuild", new {amount = Model.player.Balance}, new {@class = "btn btn-outline-primary"})
-            @Html.ActionLink("No", "Skip", "AssassinsGuild", Model.player, new {@class = "btn btn-outline-secondary"})
-            @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new {@class = "btn btn-outline-warning"})
+            <div class="card-body">
+                @Html.ActionLink("Yes", "About", "AssassinsGuild", new { amount = Model.player.Balance }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("No", "Skip", "AssassinsGuild", Model.player, new { @class = "btn btn-outline-secondary" })
+                @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new { @class = "btn btn-outline-warning" })
+            </div>
         </div>
     </div>
 </div>

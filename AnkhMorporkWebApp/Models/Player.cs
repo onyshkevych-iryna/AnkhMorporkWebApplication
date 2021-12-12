@@ -17,17 +17,25 @@ namespace AnkhMorporkWebApp.Models
             this.Balance = balance;
         }
 
+        public Player(decimal balance, int beerAmount)
+        {
+            this.Balance = balance;
+            this.BeerAmount = beerAmount;
+        }
+
         public void GetMoney(decimal amount)
         {
             this.Balance += amount;
         }
 
-        public void GiveMoney(decimal amount)
+        public void GiveMoney(decimal amount, ref bool isValidInput)
         {
+            isValidInput = true;
             this.Balance -= amount;
             if (this.Balance <= 0)
             {
                 IsAlive = false;
+                isValidInput = false;
                 //ConsoleColorChanger.ChangeColor("You don't have enough money! Game is over.", ConsoleColor.Red);
             }
         }

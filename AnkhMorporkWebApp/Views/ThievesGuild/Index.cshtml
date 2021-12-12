@@ -15,7 +15,7 @@
     <div class="toast-body">
         @Model.sloganToPay @Model.thief.Fee @Model.sloganEnd 
         <div class="card-body">
-            @Html.ActionLink("Yes", "Yes", "ThievesGuild", new { sum = Model.thief.Fee, balance = Model.player.Balance }, new { @class = "btn btn-outline-primary" })
+            @Html.ActionLink("Yes", "Yes", "ThievesGuild", Model.player, new { @class = "btn btn-outline-primary" })
             @Html.ActionLink("No", "No", "ThievesGuild", Model.player, new { @class = "btn btn-outline-secondary" })
             @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new { @class = "btn btn-outline-warning" })
         </div>
