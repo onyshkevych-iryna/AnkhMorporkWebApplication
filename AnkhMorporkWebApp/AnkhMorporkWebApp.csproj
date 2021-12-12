@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -56,6 +59,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -124,6 +131,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\Guilds.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -139,6 +147,10 @@
     </Compile>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="GuildsInitializer.cs" />
+    <Compile Include="Guilds\GuildOfAssassins.cs" />
+    <Compile Include="Guilds\GuildOfBeggars.cs" />
+    <Compile Include="Guilds\GuildOfFools.cs" />
+    <Compile Include="Guilds\GuildOfThieves.cs" />
     <Compile Include="Models\Assassin.cs" />
     <Compile Include="Models\Beggar.cs" />
     <Compile Include="Models\Fool.cs" />
@@ -198,7 +210,6 @@
     <Content Include="Views\AssassinsGuild\About.cshtml" />
     <Content Include="Views\Game\EndOfGame.cshtml" />
     <Content Include="Views\AssassinsGuild\Question.cshtml" />
-    <Content Include="Views\FoolsGuild\Reject.cshtml" />
     <Content Include="Views\Pub\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -217,12 +228,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AnkhMorporkApp\AnkhMorporkApp.csproj">
-      <Project>{4e10ccc6-797e-4345-bd5c-2fbdde02e5ef}</Project>
-      <Name>AnkhMorporkApp</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

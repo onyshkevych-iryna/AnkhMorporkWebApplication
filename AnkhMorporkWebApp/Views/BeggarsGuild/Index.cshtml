@@ -28,8 +28,9 @@
             @Html.ActionLink("Yes", "Yes", "BeggarsGuild",
                 new
                 {
+                    fee = Model.begar.Fee, 
+                    beerAmount = Model.player.BeerAmount,
                     balance = Model.player.Balance,
-                    fee = Model.begar.Fee
                 }
                 , new {@class = "btn btn-outline-primary"})
             @Html.ActionLink("No", "No", "BeggarsGuild", Model.player, new {@class = "btn btn-outline-danger"})

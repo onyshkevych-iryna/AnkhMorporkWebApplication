@@ -24,15 +24,15 @@ namespace AnkhMorporkWebApp
             {
 
                 new Beggar {Practice = "Twitchers", Fee = 3},
-                new Beggar {Practice = "Droolers", Fee = 2},
-                new Beggar {Practice = "Dribblers", Fee = 1},
-                new Beggar {Practice = "Mumblers", Fee = 1},
-                new Beggar {Practice = "Mutterers", Fee = 0.9m},
-                new Beggar {Practice = "Walking-Along-Shouter", Fee = 0.8m},
-                new Beggar {Practice = "Demanders of a Chip", Fee = 0.6m},
-                new Beggar {Practice = "People Who Call Other People Jimmy", Fee = 0.5m},
-                new Beggar {Practice = "People Who Need Eightpence For A Meal", Fee = 0.08m},
-                new Beggar {Practice = "People Who Need Tuppence For A Cup Of Tea", Fee = 0.02m},
+                //new Beggar {Practice = "Droolers", Fee = 2},
+                //new Beggar {Practice = "Dribblers", Fee = 1},
+                //new Beggar {Practice = "Mumblers", Fee = 1},
+                //new Beggar {Practice = "Mutterers", Fee = 0.9m},
+                //new Beggar {Practice = "Walking-Along-Shouter", Fee = 0.8m},
+                //new Beggar {Practice = "Demanders of a Chip", Fee = 0.6m},
+                //new Beggar {Practice = "People Who Call Other People Jimmy", Fee = 0.5m},
+                //new Beggar {Practice = "People Who Need Eightpence For A Meal", Fee = 0.08m},
+                //new Beggar {Practice = "People Who Need Tuppence For A Cup Of Tea", Fee = 0.02m},
                 new Beggar {Practice = "People With Placards Saying \"Why lie? I need a beer\"", Fee = 0}
             };
             beggars.ForEach(s => context.Beggars.Add(s));

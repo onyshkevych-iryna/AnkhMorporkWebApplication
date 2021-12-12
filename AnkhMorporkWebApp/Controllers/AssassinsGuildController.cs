@@ -31,7 +31,7 @@ namespace AnkhMorporkWebApp.Controllers
             var guildOfAssassins = db.Assassins.ToList();
             var assassin = guildOfAssassins
                 .FirstOrDefault(a => a.MinReward <= vm.amount && a.MaxReward >= vm.amount && !a.IsOccupied);
-            vm.player.GiveMoney(vm.amount);
+            //vm.player.GiveMoney(vm.amount);
             if(vm.player.IsAlive==false)
                   return RedirectToAction("EndOfGame", "Game");
             _player = new Player(vm.player.Balance);
