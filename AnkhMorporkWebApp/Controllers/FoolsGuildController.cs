@@ -6,24 +6,24 @@ namespace AnkhMorporkWebApp.Controllers
 {
     public class FoolsGuildController : Controller
     {
-        private GuildOfFools guild = new GuildOfFools();
-        private Player player;
+        private readonly GuildOfFools _guild = new GuildOfFools();
+        private Player _player;
 
         public ActionResult Index()
         {
-            var model = TempData["NewFoolModel"] as PlayerFoolViewModel;
+            var model = TempData["FoolViewModel"] as PlayerFoolViewModel;
             return View(model);
         }
 
         public ActionResult Yes(string action, decimal balance, int beerAmount, decimal sum)
         {
-            player = guild.InteractionWithPlayer(action, balance,  beerAmount,  sum);
-            return RedirectToAction("Index", "Game", player);
+            _player = _guild.InteractionWithPlayer(action, balance,  beerAmount,  sum);
+            return RedirectToAction("Index", "Game", _player);
         }
 
         public ActionResult No(string action, Player player)
         {
-            player = guild.InteractionWithPlayer(action, player.Balance, player.BeerAmount, 0);
+            player = _guild.InteractionWithPlayer(action, player.Balance, player.BeerAmount, 0);
             return RedirectToAction("Index", "Game", player );
         }
     }

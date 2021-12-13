@@ -11,7 +11,7 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Index()
         {
-            var model = TempData["NewBeggarModel"] as PlayerBeggarViewModel;
+            var model = TempData["BeggarViewModel"] as PlayerBeggarViewModel;
             return View(model);
         }
 

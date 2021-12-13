@@ -7,7 +7,6 @@ namespace AnkhMorporkWebApp.Controllers
 {
     public class AssassinsGuildController : Controller
     {
-        private ApplicationContext db = new ApplicationContext();
         private GuildOfAssassins guild = new GuildOfAssassins();
         private Player _player;
 
@@ -41,7 +40,7 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Question()
         {
-            var model = TempData["NewAssassinModel"] as PlayerAssassinViewModel;
+            var model = TempData["AssassinViewModel"] as PlayerAssassinViewModel;
             return View(model);
         }
     }
