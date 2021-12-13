@@ -6,7 +6,7 @@ namespace AnkhMorporkWebApp.Controllers
 {
     public class AssassinsGuildController : Controller
     {
-        private GuildOfAssassins guild = new GuildOfAssassins();
+        private readonly GuildOfAssassins _guild = new GuildOfAssassins();
         private Player _player;
 
         public ActionResult Question()
@@ -18,24 +18,24 @@ namespace AnkhMorporkWebApp.Controllers
         public ActionResult About(decimal amount)
         {
             _player = new Player(amount);
-            PlayerAssassinViewModel pavm = new PlayerAssassinViewModel
+            var assassinViewModel = new PlayerAssassinViewModel
             {
-                balanceOfPlayer = amount,
-                player = _player
+                BalanceOfPlayer = amount,
+                Player = _player
             };
-            return View(pavm);
+            return View(assassinViewModel);
         }
 
         public ActionResult Yes(string action, PlayerAssassinViewModel vm)
         {
-            _player = guild.InteractionWithPlayer(action, out string controller, out string actionName,
-                out string message, vm.player.Balance, vm.player.BeerAmount, vm.amount);
+            _player = _guild.InteractionWithPlayer(action, out string controller, out string actionName,
+                out string message, vm.Player.Balance, vm.Player.BeerAmount, vm.Amount);
             return RedirectToAction(actionName, controller, _player);
         }
 
         public ActionResult No(string action)
         {
-            guild.InteractionWithPlayer(action, out string controller, out string act,
+            _guild.InteractionWithPlayer(action, out string controller, out string act,
                 out string message);
             return RedirectToAction(act, controller, new { slogan = message });
         }

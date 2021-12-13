@@ -3,23 +3,23 @@
 @{
     ViewBag.Title = "Index";
 }
-<p>Current balance:</p> @Model.player.Balance
+<p class="text-primary"> <i class="fas fa-dollar-sign"></i> Balance: @Model.Player.Balance</p>
 
 @using (Html.BeginForm("Yes", "AssassinsGuild", FormMethod.Post))
 {
     <div class="form-group row">
-        @Html.HiddenFor(m => m.player.Balance)
-        @Html.HiddenFor(m => m.player.BeerAmount)
-        @Html.HiddenFor(m => m.balanceOfPlayer)
-        @Html.LabelFor(i => i.amount, "Input sum")
-        @Html.TextBoxFor(i => i.amount, new { @type = "number" })
-        @Html.ValidationMessageFor(i => i.amount)
+        @Html.HiddenFor(m => m.Player.Balance)
+        @Html.HiddenFor(m => m.Player.BeerAmount)
+        @Html.HiddenFor(m => m.BalanceOfPlayer)
+        @Html.LabelFor(i => i.Amount, "Input sum")
+        @Html.TextBoxFor(i => i.Amount, new { @type = "number" })
+        @Html.ValidationMessageFor(i => i.Amount)
         <button name="action" class="btn btn-outline-primary" value="Yes">Yes</button>
     </div>
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-@*<form _lpchecked="1">
-<fieldset>
-<legend>Legend</legend>*@
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+

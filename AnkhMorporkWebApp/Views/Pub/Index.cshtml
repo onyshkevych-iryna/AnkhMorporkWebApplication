@@ -1,20 +1,32 @@
 ﻿@using AnkhMorporkWebApp.Models
 @model AnkhMorporkWebApp.Models.PlayerPubViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Pub";
 }
 
-<h2> Welcome to @Model.pub.Name</h2>
-Your current amount of beer: @Model.player.BeerAmount
-<div class="card-body">
-@if (Model.player.BeerAmount < Model.pub.MaxAmountOfBeerForPlayer)
-{
-    @Html.ActionLink("Get Beer", "GetBeer", "Pub", Model.player, new { @class = "btn btn-outline-primary" })
-}
-else
-{
-    <h2>There is no available beer for you!</h2>
-}
-
-@Html.ActionLink("Exit", "Index", "Game", Model.player, new { @class = "btn btn-outline-primary" })
+<div class="card bg-light mb-3" style="max-width: 20rem;">
+    <div class="card-header">
+        <i class="fas fa-glass-cheers"></i>
+        Welcome to "@Model.Pub.Name"
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">
+            Your count of beer: @Model.Player.BeerAmount
+        </h4>
+        <p class="card-text">
+            @if (Model.Player.BeerAmount < Model.Pub.MaxAmountOfBeerForPlayer)
+            {
+                @Html.ActionLink("Get Beer", "GetBeer", "Pub", Model.Player, new { @class = "btn btn-outline-warning" })
+            }
+            else
+            {
+                <p class="text-warning">
+                    <small>There is no available beer for you!</small>
+                </p>
+            }
+            @Html.ActionLink("Exit", "Index", "Game", Model.Player, new { @class = "btn btn-outline-primary" })
+        </p>
+    </div>
 </div>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">

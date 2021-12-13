@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace AnkhMorporkWebApp.Models
+﻿namespace AnkhMorporkWebApp.Models
 {
     public class PlayerPubViewModel
     {
-        public Player player { get; set; }
-        public Pub pub { get; set; }
+        public Player Player { get; set; }
+        public Pub Pub { get; set; }
     }
 }

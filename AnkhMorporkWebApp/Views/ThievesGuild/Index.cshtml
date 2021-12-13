@@ -1,24 +1,26 @@
 ﻿@using AnkhMorporkWebApp.Models
-@model AnkhMorporkWebApp.Models.PlayerThiefModel
+@model AnkhMorporkWebApp.Models.PlayerThiefViewModel
 @{
     ViewBag.Title = "Player meets a thief";
 }
 
 <div class="toast show" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-        <strong class="me-auto">@Model.sloganStart </strong>
+        <strong class="me-auto">@Model.SloganStart </strong>
         <img src="@Url.Content("~/Content/Images/thieve.png")" style="width: 200px; height: 200px; "  />
     </div>
     <div class="toast-body">
-        @Model.sloganToPay @Model.thief.Fee @Model.sloganEnd 
+        @Model.SloganToPay @Model.Thief.Fee @Model.SloganEnd 
         <div class="card-body">
-            @Html.ActionLink("Yes", "Yes", "ThievesGuild", Model.player, new { @class = "btn btn-outline-primary" })
-            @Html.ActionLink("No", "No", "ThievesGuild", Model.player, new { @class = "btn btn-outline-secondary" })
-            @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new { @class = "btn btn-outline-warning" })
+            @Html.ActionLink("Yes", "Yes", "ThievesGuild", Model.Player, new { @class = "btn btn-outline-primary" })
+            @Html.ActionLink("No", "No", "ThievesGuild", Model.Player, new { @class = "btn btn-outline-secondary" })
+            @Html.ActionLink("Visit Pub", "Index", "Pub", Model.Player, new { @class = "btn btn-outline-warning" })
         </div>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item"> Balance: @Model.player.Balance</li>
-        <li class="list-group-item"> Amount of beer: @Model.player.BeerAmount</li>
+        <li class="list-group-item"> <i class="fas fa-dollar-sign"></i> Balance: @Model.Player.Balance</li>
+        <li class="list-group-item"> <i class="fas fa-beer"></i> Amount of beer: @Model.Player.BeerAmount</li>
     </ul>
 </div>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
