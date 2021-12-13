@@ -40,7 +40,7 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Question()
         {
-            var model = TempData["AssassinViewModel"] as PlayerAssassinViewModel;
+            var model = TempData["NewAssassinModel"] as PlayerAssassinViewModel;
             return View(model);
         }
     }
