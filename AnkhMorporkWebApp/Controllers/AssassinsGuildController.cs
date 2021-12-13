@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AnkhMorporkWebApp.Guilds;
 using AnkhMorporkWebApp.Models;
 
@@ -10,11 +9,10 @@ namespace AnkhMorporkWebApp.Controllers
         private GuildOfAssassins guild = new GuildOfAssassins();
         private Player _player;
 
-        public ActionResult No(string action, Player player)
+        public ActionResult Question()
         {
-            guild.InteractionWithPlayer(action, out string con, out string act,
-                out string message);
-            return RedirectToAction(act, con, new { slogan = message });
+            var model = TempData["AssassinViewModel"] as PlayerAssassinViewModel;
+            return View(model);
         }
 
         public ActionResult About(decimal amount)
@@ -30,18 +28,16 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Yes(string action, PlayerAssassinViewModel vm)
         {
-            //if (vm.player.IsOutOfMoney(vm.player.Balance))
-            //    return RedirectToAction("EndOfGame", "Game");
-
             _player = guild.InteractionWithPlayer(action, out string controller, out string actionName,
                 out string message, vm.player.Balance, vm.player.BeerAmount, vm.amount);
             return RedirectToAction(actionName, controller, _player);
         }
 
-        public ActionResult Question()
+        public ActionResult No(string action)
         {
-            var model = TempData["NewAssassinModel"] as PlayerAssassinViewModel;
-            return View(model);
+            guild.InteractionWithPlayer(action, out string controller, out string act,
+                out string message);
+            return RedirectToAction(act, controller, new { slogan = message });
         }
     }
 }
