@@ -1,6 +1,4 @@
-﻿
-
-using AnkhMorporkWebApp.Abstracts;
+﻿using AnkhMorporkWebApp.Abstracts;
 using AnkhMorporkWebApp.Models;
 
 namespace AnkhMorporkWebApp.Guilds

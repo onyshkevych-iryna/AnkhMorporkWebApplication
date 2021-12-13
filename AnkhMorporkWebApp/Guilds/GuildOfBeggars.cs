@@ -1,53 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnkhMorporkWebApp.Abstracts;
-using AnkhMorporkWebApp.Models;
+﻿using AnkhMorporkWebApp.Models;
 
 namespace AnkhMorporkWebApp.Guilds
 {
     public class GuildOfBeggars
     {
-        public List<Beggar> Beggars;
-
-
-        //public override void InteractionWithPlayer(Player player, Beggar beggar)
-        //{
-        //    if (beggar.Fee != 0)
-        //    {
-        //        //ConsoleColorChanger.ChangeColor($"You came across a beggar! To pay him {CurrencyConverter.Convert(beggar.Fee)} - enter \"yes\". To skip - enter \"no\".", ConsoleColor.Green);
-        //        if (player.IsOutOfMoney(beggar.Fee))
-        //        {
-        //            return;
-        //        }
-        //        var validInput = false;
-        //        do
-        //        {
-        //            var input = Console.ReadLine();
-        //            if (input == "yes")
-        //            {
-        //               // player.GiveMoney(beggar.Fee, ref validInput);
-        //            }
-        //            else if (input == "no")
-        //            {
-        //                player.Skip(beggar.GetType());
-        //                return;
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("Incorrect data! Please, try again:");
-        //            }
-        //        } while (!validInput);
-        //    }
-        //    //else
-        //    //    ConsoleColorChanger.ChangeColor("You met people with placards saying: \"Why lie? I need a beer\".", ConsoleColor.Yellow);
-        //}
-
-        public Player InteractionWithPlayer(string action, decimal balance, int beerAmount, decimal sum,
-            out string controller, out string act, out string message)
-        {
+        public Player InteractionWithPlayer(out string controller, out string act, out string message, string action, decimal balance = 0, int beerAmount=0, decimal sum=0) {
             Player player = new Player(balance, beerAmount);
             if (action == "Yes")
             {
@@ -62,7 +19,7 @@ namespace AnkhMorporkWebApp.Guilds
                     }
                     else
                     {
-                        controller = "Home";
+                        controller = "Game";
                         act = "Index";
                     }
                     message = null;
@@ -72,7 +29,7 @@ namespace AnkhMorporkWebApp.Guilds
                     if (beerAmount != 0)
                     {
                         player.BeerAmount--;
-                        controller = "Home";
+                        controller = "Game";
                         act = "Index";
                         message = null;
                     }

@@ -55,6 +55,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FoolproofValidation, Version=0.9.5851.39121, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Foolproof.0.9.4518\lib\net45\FoolproofValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -154,13 +157,13 @@
     <Compile Include="Models\Assassin.cs" />
     <Compile Include="Models\Beggar.cs" />
     <Compile Include="Models\Fool.cs" />
-    <Compile Include="Models\MessageViewModel.cs" />
+    <Compile Include="Models\ViewModels\MessageViewModel.cs" />
     <Compile Include="Models\Player.cs" />
-    <Compile Include="Models\PlayerAssassinViewModel.cs" />
-    <Compile Include="Models\PlayerBeggarViewModel.cs" />
-    <Compile Include="Models\PlayerFoolViewModel.cs" />
-    <Compile Include="Models\PlayerPubViewModel.cs" />
-    <Compile Include="Models\PlayerThiefModel.cs" />
+    <Compile Include="Models\ViewModels\PlayerAssassinViewModel.cs" />
+    <Compile Include="Models\ViewModels\PlayerBeggarViewModel.cs" />
+    <Compile Include="Models\ViewModels\PlayerFoolViewModel.cs" />
+    <Compile Include="Models\ViewModels\PlayerPubViewModel.cs" />
+    <Compile Include="Models\ViewModels\PlayerThiefModel.cs" />
     <Compile Include="Models\Pub.cs" />
     <Compile Include="Models\Thief.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -169,6 +172,12 @@
     <Compile Include="Services\GuildsServices\GuildOfThievesService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client Scripts\mvcfoolproof.unobtrusive.js" />
+    <Content Include="Client Scripts\mvcfoolproof.unobtrusive.min.js" />
+    <Content Include="Client Scripts\MvcFoolproofJQueryValidation.js" />
+    <Content Include="Client Scripts\MvcFoolproofJQueryValidation.min.js" />
+    <Content Include="Client Scripts\MvcFoolproofValidation.js" />
+    <Content Include="Client Scripts\MvcFoolproofValidation.min.js" />
     <Content Include="Content\bootstrap-pulse.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -211,6 +220,7 @@
     <Content Include="Views\Game\EndOfGame.cshtml" />
     <Content Include="Views\AssassinsGuild\Question.cshtml" />
     <Content Include="Views\Pub\Index.cshtml" />
+    <Content Include="Views\Home\Play.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,7 @@ namespace AnkhMorporkWebApp.Guilds
     public class GuildOfThieves 
     {
         public static int NumberOfThieves = 6;
-        public  Player InteractionWithPlayer(string action, decimal balance, int beerAmount, decimal sum, out string controller, out string act, out string message)
+        public  Player InteractionWithPlayer(string action, out string controller, out string act, out string message, decimal balance=0, int beerAmount=0, decimal sum=0)
         { 
             Player player = new Player(balance, beerAmount);
             if (action == "Yes")
@@ -20,7 +20,7 @@ namespace AnkhMorporkWebApp.Guilds
                 }
                 else
                 {
-                    controller = "Home";
+                    controller = "Game";
                     act = "Index";
                 }
                 message = null;
@@ -33,5 +33,6 @@ namespace AnkhMorporkWebApp.Guilds
             }
             return player;
         }
+
     }
 }
