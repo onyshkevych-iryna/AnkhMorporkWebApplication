@@ -5,19 +5,24 @@
 }
 <p>Current balance:</p> @Model.player.Balance
 
-@using (Html.BeginForm("Input", "AssassinsGuild", FormMethod.Post))
+@using (Html.BeginForm("Yes", "AssassinsGuild", FormMethod.Post))
 {
     <table>
         <tr>
             @Html.HiddenFor(m => m.player.Balance)
-            <td>
-                <p>Input sum</p>
-            </td>
-            <td><input type="number" name="amount" /> </td>
+            @Html.HiddenFor(m => m.player.BeerAmount)
+            @Html.HiddenFor(m => m.balanceOfPlayer)
+            @Html.LabelFor(i => i.amount, "Input sum")
+            @Html.TextBoxFor(i => i.amount, new { @type = "number" })
+            @Html.ValidationMessageFor(i => i.amount)
+            @*<td><input type="number" name="amount" /> </td>*@
         </tr>
         @*<tr><td><input type="submit" value="Enter" /> </td>
             <td></td></tr>*@
     </table>
     @*@Html.ActionLink("Yes", "Yes", "FoolsGuild", new { balance = Model.player.Balance }, null)*@
-    <button name="action" class="btn btn-outline-primary" value="yes">Yes</button>
+    <button name="action" class="btn btn-outline-primary" value="Yes">Yes</button>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

@@ -18,13 +18,13 @@ namespace AnkhMorporkWebApp.Controllers
         public ActionResult Yes(string action, decimal balance, int beerAmount, decimal sum)
         {
             player = guild.InteractionWithPlayer(action, balance,  beerAmount,  sum);
-            return RedirectToAction("Index", "Home", player);
+            return RedirectToAction("Index", "Game", player);
         }
 
         public ActionResult No(string action, Player player)
         {
             player = guild.InteractionWithPlayer(action, player.Balance, player.BeerAmount, 0);
-            return RedirectToAction("Index", "Home", player );
+            return RedirectToAction("Index", "Game", player );
         }
     }
 }

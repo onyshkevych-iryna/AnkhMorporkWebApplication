@@ -17,15 +17,15 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Yes(string action, int beerAmount, decimal balance, decimal fee)
         {
-            player = guild.InteractionWithPlayer(action, balance, beerAmount, fee, out string controller, out string actionName,
-                out string message);
+            player = guild.InteractionWithPlayer(out string controller, out string actionName,
+                out string message, action, balance, beerAmount, fee);
             return RedirectToAction(actionName, controller, player);
         }
 
-        public ActionResult No(string action, Player player)
+        public ActionResult No(string action)
         {
-            guild.InteractionWithPlayer(action, 0, 0, 0, out string con, out string act,
-                out string message);
+            guild.InteractionWithPlayer(out string con, out string act,
+                out string message, action);
             return RedirectToAction(act, con, new { slogan = message });
         }
     }
