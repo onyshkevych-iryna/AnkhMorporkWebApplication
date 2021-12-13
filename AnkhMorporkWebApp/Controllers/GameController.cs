@@ -20,23 +20,23 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Index(Player player)
         {
-            const int maxNumberOfGuilds = 3;
+            const int maxNumberOfGuilds = 1;
             var rnd = new Random();
             var random = rnd.Next(0, maxNumberOfGuilds);
             if (player.IsAlive)
             {
                 switch (random)
                 {
+                    //case 0:
+                    //    TempData["FoolViewModel"] = _foolService.GetRandomFool(player, rnd);
+                    //    return RedirectToAction("Index", "FoolsGuild");
+                    //case 1:
+                    //    TempData["BeggarViewModel"] = _beggarService.GetRandomBeggar(player, rnd);
+                    //    return RedirectToAction("Index", "BeggarsGuild");
+                    //case 2:
+                    //    TempData["ThiefViewModel"] = _thiefservice.GetThieve(player);
+                    //    return RedirectToAction("Index", "ThievesGuild");
                     case 0:
-                        TempData["FoolViewModel"] = _foolService.GetRandomFool(player, rnd);
-                        return RedirectToAction("Index", "FoolsGuild");
-                    case 1:
-                        TempData["BeggarViewModel"] = _beggarService.GetRandomBeggar(player, rnd);
-                        return RedirectToAction("Index", "BeggarsGuild");
-                    case 2:
-                        TempData["ThiefViewModel"] = _thiefservice.GetThieve(player);
-                        return RedirectToAction("Index", "ThievesGuild");
-                    case 3:
                         PlayerAssassinViewModel pavm = new PlayerAssassinViewModel();
                         pavm.player = player;
                         TempData["AssassinViewModel"] = pavm;

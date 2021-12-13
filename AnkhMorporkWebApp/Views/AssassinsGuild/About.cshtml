@@ -7,22 +7,19 @@
 
 @using (Html.BeginForm("Yes", "AssassinsGuild", FormMethod.Post))
 {
-    <table>
-        <tr>
-            @Html.HiddenFor(m => m.player.Balance)
-            @Html.HiddenFor(m => m.player.BeerAmount)
-            @Html.HiddenFor(m => m.balanceOfPlayer)
-            @Html.LabelFor(i => i.amount, "Input sum")
-            @Html.TextBoxFor(i => i.amount, new { @type = "number" })
-            @Html.ValidationMessageFor(i => i.amount)
-            @*<td><input type="number" name="amount" /> </td>*@
-        </tr>
-        @*<tr><td><input type="submit" value="Enter" /> </td>
-            <td></td></tr>*@
-    </table>
-    @*@Html.ActionLink("Yes", "Yes", "FoolsGuild", new { balance = Model.player.Balance }, null)*@
-    <button name="action" class="btn btn-outline-primary" value="Yes">Yes</button>
+    <div class="form-group row">
+        @Html.HiddenFor(m => m.player.Balance)
+        @Html.HiddenFor(m => m.player.BeerAmount)
+        @Html.HiddenFor(m => m.balanceOfPlayer)
+        @Html.LabelFor(i => i.amount, "Input sum")
+        @Html.TextBoxFor(i => i.amount, new { @type = "number" })
+        @Html.ValidationMessageFor(i => i.amount)
+        <button name="action" class="btn btn-outline-primary" value="Yes">Yes</button>
+    </div>
 }
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+@*<form _lpchecked="1">
+<fieldset>
+<legend>Legend</legend>*@
