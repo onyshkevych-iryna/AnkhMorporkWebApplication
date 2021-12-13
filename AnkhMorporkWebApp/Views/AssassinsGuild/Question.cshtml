@@ -8,9 +8,6 @@
     <div class="toast-header">
         <strong class="me-auto">@Model.sloganStart </strong>
         <img src="@Url.Content("~/Content/Images/assassin1.png")" style="width: 200px; height: 200px;" />
-        <small>
-            Current balance: @Model.player.Balance
-        </small>
     </div>
     <div class="toast-body">
         <div class="card-body">
@@ -22,5 +19,9 @@
             </div>
         </div>
     </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"> Balance: @Model.player.Balance</li>
+        <li class="list-group-item"> Amount of beer: @Model.player.BeerAmount</li>
+    </ul>
 </div>
 

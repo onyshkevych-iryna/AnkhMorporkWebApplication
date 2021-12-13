@@ -9,9 +9,6 @@
     <div class="toast-header">
         <strong class="me-auto">@Model.sloganStart </strong>
         <img src="@Url.Content("~/Content/Images/beggar.png")" style="width: 200px; height: 200px;" />
-        <small>
-            Current balance: @Model.player.Balance
-        </small>
     </div>
     <div class="toast-body">
         @if (Model.begar.Fee == 0)
@@ -37,4 +34,8 @@
             @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new {@class = "btn btn-outline-warning"})
         </div>
     </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"> Balance: @Model.player.Balance</li>
+        <li class="list-group-item"> Amount of beer: @Model.player.BeerAmount</li>
+    </ul>
 </div>

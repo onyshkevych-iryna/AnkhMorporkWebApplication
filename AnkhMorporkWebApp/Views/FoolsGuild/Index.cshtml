@@ -8,9 +8,6 @@
     <div class="toast-header">
         <strong class="me-auto">@Model.sloganStart </strong>
         <img src="@Url.Content("~/Content/Images/fool.png")" style="width: 200px; height: 200px;"/>
-        <small>
-            Current balance: @Model.player.Balance
-        </small>
     </div>
     <div class="toast-body">
         @Model.sloganFirstPart @Model.fool.Practice @Model.sloganSecondPart @Model.fool.Fee @Model.sloganEnd
@@ -21,5 +18,9 @@
             @Html.ActionLink("No", "No", "FoolsGuild", Model.player, new {@class = "btn btn-outline-secondary"})
             @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new {@class = "btn btn-outline-warning"})
         </div>
-        </div>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"> Balance: @Model.player.Balance</li>
+        <li class="list-group-item"> Amount of beer: @Model.player.BeerAmount</li>
+    </ul>
 </div>
