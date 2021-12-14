@@ -11,17 +11,17 @@ namespace AnkhMorporkWebApp.Services.GuildsServices
         public PlayerFoolViewModel GetRandomFool(Player _player, Random rnd)
         {
             var fools = db.Fools.ToList();
-            Fool fool = fools[rnd.Next(1, fools.Count)];
-            PlayerFoolViewModel pfvm = new PlayerFoolViewModel
+            var fool = fools[rnd.Next(1, fools.Count)];
+            var foolViewModel = new PlayerFoolViewModel
             {
-                player = _player,
-                fool = new Fool
+                Player = _player,
+                Fool = new Fool
                 {
                     Practice = fool.Practice,
                     Fee = fool.Fee
                 }
             };
-            return pfvm;
+            return foolViewModel;
         }
     }
 }

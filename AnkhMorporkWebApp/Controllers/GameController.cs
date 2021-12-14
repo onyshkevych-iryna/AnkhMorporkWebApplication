@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using AnkhMorporkWebApp.Guilds;
 using AnkhMorporkWebApp.Models;
 using AnkhMorporkWebApp.Services.GuildsServices;
 
@@ -7,39 +8,43 @@ namespace AnkhMorporkWebApp.Controllers
 {
     public class GameController : Controller
     {
+        private readonly GuildOfBeggarsService _beggarService = new GuildOfBeggarsService();
+        private readonly GuildOfFoolsService _foolService = new GuildOfFoolsService();
+        private readonly GuildOfThievesService _thiefService = new GuildOfThievesService();
+
         public ActionResult Start()
         {
-            Player _player = new Player();
-            _player.IsAlive = true;
-            return RedirectToAction("Index", "Game", _player);
+            var player = new Player();
+            player.IsAlive = true;
+            return RedirectToAction("Index", "Game", player);
         }
 
-        private GuildOfBeggarsService _beggarService = new GuildOfBeggarsService();
-        private GuildOfFoolsService _foolService = new GuildOfFoolsService();
-        private GuildOfThievesService _thiefservice = new GuildOfThievesService();
-
-        public ActionResult Index(Player _player)
+        public ActionResult Index(Player player)
         {
-            const int _maxNumberOfGuilds = 3;
+            const int maxNumberOfGuilds = 4;
             var rnd = new Random();
-            var random = rnd.Next(0, _maxNumberOfGuilds);
-            if (_player.IsAlive)
+            var random = rnd.Next(0, maxNumberOfGuilds);
+            if (player.IsAlive)
             {
                 switch (random)
                 {
                     case 0:
-                        TempData["NewFoolModel"] = _foolService.GetRandomFool(_player, rnd);
+                        TempData["FoolViewModel"] = _foolService.GetRandomFool(player, rnd);
                         return RedirectToAction("Index", "FoolsGuild");
                     case 1:
-                        TempData["NewBeggarModel"] = _beggarService.GetRandomBeggar(_player, rnd);
+                        TempData["BeggarViewModel"] = _beggarService.GetRandomBeggar(player, rnd);
                         return RedirectToAction("Index", "BeggarsGuild");
                     case 2:
-                        TempData["NewCustomer"] = _thiefservice.GetThieve(_player);
-                        return RedirectToAction("Index", "ThievesGuild");
+                        if (GuildOfThieves.NumberOfThieves > 0)
+                        {
+                            TempData["ThiefViewModel"] = _thiefService.GetThieve(player);
+                            return RedirectToAction("Index", "ThievesGuild");
+                        }
+                        return RedirectToAction("Index", "Game", player);
                     case 3:
-                        PlayerAssassinViewModel pavm = new PlayerAssassinViewModel();
-                        pavm.player = _player;
-                        TempData["NewAssassinModel"] = pavm;
+                        var assassinViewModel= new PlayerAssassinViewModel();
+                        assassinViewModel.Player = player;
+                        TempData["AssassinViewModel"] = assassinViewModel;
                         return RedirectToAction("Question", "AssassinsGuild");
                 }
             }
@@ -48,7 +53,7 @@ namespace AnkhMorporkWebApp.Controllers
       
         public ActionResult EndOfGame(string slogan)
         {
-            MessageViewModel mvm = new MessageViewModel
+            var mvm = new MessageViewModel
             {
                 Message = slogan
             };

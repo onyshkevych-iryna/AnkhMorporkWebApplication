@@ -3,15 +3,15 @@ using AnkhMorporkWebApp.Models;
 
 namespace AnkhMorporkWebApp.Guilds
 {
-    public class GuildOfThieves 
+    public class GuildOfThieves : Guilds<Thief>
     {
         public static int NumberOfThieves = 6;
-        public  Player InteractionWithPlayer(string action, out string controller, out string act, out string message, decimal balance=0, int beerAmount=0, decimal sum=0)
+        public override Player InteractionWithPlayer(string action, out string controller, out string act, out string message, decimal balance=0, int beerAmount=0, decimal sum=0)
         { 
-            Player player = new Player(balance, beerAmount);
+            var player = new Player(balance, beerAmount);
             if (action == "Yes")
             {
-                bool isValid = false;
+                var isValid = false;
                 player.GiveMoney(sum, ref isValid);
                 if (!isValid)
                 {
@@ -33,6 +33,5 @@ namespace AnkhMorporkWebApp.Guilds
             }
             return player;
         }
-
     }
 }

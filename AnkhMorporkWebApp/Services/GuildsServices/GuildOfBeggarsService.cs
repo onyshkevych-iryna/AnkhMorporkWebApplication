@@ -11,17 +11,17 @@ namespace AnkhMorporkWebApp.Services.GuildsServices
         public PlayerBeggarViewModel GetRandomBeggar(Player player, Random rnd)
         {
             var beggars = db.Beggars.ToList();
-            Beggar rBeggar = beggars[rnd.Next(1, beggars.Count)];
-            PlayerBeggarViewModel pbvm = new PlayerBeggarViewModel
+            var beggar = beggars[rnd.Next(1, beggars.Count)];
+            var beggarViewModel = new PlayerBeggarViewModel
             {
-                player = player,
-                begar = new Beggar
+                Player = player,
+                Beggar = new Beggar
                 {
-                    Practice = rBeggar.Practice,
-                    Fee = rBeggar.Fee
+                    Practice = beggar.Practice,
+                    Fee = beggar.Fee
                 }
             };
-            return pbvm;
+            return beggarViewModel;
         }
     }
 }

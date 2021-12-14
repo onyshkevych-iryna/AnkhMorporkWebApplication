@@ -163,7 +163,7 @@
     <Compile Include="Models\ViewModels\PlayerBeggarViewModel.cs" />
     <Compile Include="Models\ViewModels\PlayerFoolViewModel.cs" />
     <Compile Include="Models\ViewModels\PlayerPubViewModel.cs" />
-    <Compile Include="Models\ViewModels\PlayerThiefModel.cs" />
+    <Compile Include="Models\ViewModels\PlayerThiefViewModel.cs" />
     <Compile Include="Models\Pub.cs" />
     <Compile Include="Models\Thief.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

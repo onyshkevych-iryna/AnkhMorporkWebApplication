@@ -6,27 +6,27 @@ namespace AnkhMorporkWebApp.Controllers
 {
     public class BeggarsGuildController : Controller
     {
-        private GuildOfBeggars guild = new GuildOfBeggars();
+        private readonly GuildOfBeggars _guild = new GuildOfBeggars();
         private Player player;
 
         public ActionResult Index()
         {
-            var model = TempData["NewBeggarModel"] as PlayerBeggarViewModel;
+            var model = TempData["BeggarViewModel"] as PlayerBeggarViewModel;
             return View(model);
         }
 
         public ActionResult Yes(string action, int beerAmount, decimal balance, decimal fee)
         {
-            player = guild.InteractionWithPlayer(out string controller, out string actionName,
-                out string message, action, balance, beerAmount, fee);
+            player = _guild.InteractionWithPlayer(action, out string controller, out string actionName,
+                out string message, balance, beerAmount, fee);
             return RedirectToAction(actionName, controller, player);
         }
 
         public ActionResult No(string action)
         {
-            guild.InteractionWithPlayer(out string con, out string act,
-                out string message, action);
-            return RedirectToAction(act, con, new { slogan = message });
+            _guild.InteractionWithPlayer(action, out string controller, out string actionName,
+                out string message);
+            return RedirectToAction(actionName, controller, new { slogan = message });
         }
     }
 }

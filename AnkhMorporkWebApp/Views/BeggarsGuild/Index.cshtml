@@ -1,40 +1,41 @@
-﻿@using System.Diagnostics.Eventing.Reader
-@using AnkhMorporkWebApp.Models
-@model AnkhMorporkWebApp.Models.PlayerBeggarViewModel
+﻿@model AnkhMorporkWebApp.Models.PlayerBeggarViewModel
 @{
     ViewBag.Title = "Player meets a beggar";
 }
 
 <div class="toast show" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-        <strong class="me-auto">@Model.sloganStart </strong>
+        <strong class="me-auto">@Model.SloganStart </strong>
         <img src="@Url.Content("~/Content/Images/beggar.png")" style="width: 200px; height: 200px;" />
-        <small>
-            Current balance: @Model.player.Balance
-        </small>
     </div>
     <div class="toast-body">
-        @if (Model.begar.Fee == 0)
+        @if (Model.Beggar.Fee == 0)
         {
-            @Model.sloganToShareBeer
+            @Model.SloganToShareBeer
         }
         else
         {
-            @Model.sloganToPay
-            @Model.begar.Fee
+            @Model.SloganToPay
+            @Model.Beggar.Fee
         }
-        @Model.sloganEnd
+        @Model.SloganEnd
         <div class="card-body">
             @Html.ActionLink("Yes", "Yes", "BeggarsGuild",
                 new
                 {
-                    fee = Model.begar.Fee, 
-                    beerAmount = Model.player.BeerAmount,
-                    balance = Model.player.Balance,
+                    fee = Model.Beggar.Fee, 
+                    beerAmount = Model.Player.BeerAmount,
+                    balance = Model.Player.Balance,
                 }
                 , new {@class = "btn btn-outline-primary"})
-            @Html.ActionLink("No", "No", "BeggarsGuild", Model.player, new {@class = "btn btn-outline-danger"})
-            @Html.ActionLink("Visit Pub", "Index", "Pub", Model.player, new {@class = "btn btn-outline-warning"})
+            @Html.ActionLink("No", "No", "BeggarsGuild", Model.Player, new {@class = "btn btn-outline-danger"})
+            @Html.ActionLink("Visit Pub", "Index", "Pub", Model.Player, new {@class = "btn btn-outline-warning"})
         </div>
     </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"> <i class="fas fa-dollar-sign"></i> Balance: @Model.Player.Balance AM$</li>
+        <li class="list-group-item"> <i class="fas fa-beer"></i> Number of beer: @Model.Player.BeerAmount</li>
+    </ul>
 </div>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">

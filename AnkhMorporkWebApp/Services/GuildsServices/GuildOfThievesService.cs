@@ -4,14 +4,14 @@ namespace AnkhMorporkWebApp.Services.GuildsServices
 {
     public class GuildOfThievesService
     {
-        public PlayerThiefModel GetThieve(Player _player)
+        public PlayerThiefViewModel GetThieve(Player _player)
         {
-            PlayerThiefModel ptm = new PlayerThiefModel
+            var thiefViewModel = new PlayerThiefViewModel
             {
-                player = _player,
-                thief = new Thief()
+                Player = _player,
+                Thief = new Thief()
             };
-            return ptm;
+            return thiefViewModel;
         }
     }
 }

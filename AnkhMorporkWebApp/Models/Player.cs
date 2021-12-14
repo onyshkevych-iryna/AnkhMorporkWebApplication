@@ -36,38 +36,14 @@ namespace AnkhMorporkWebApp.Models
             {
                 IsAlive = false;
                 isValidInput = false;
-                //ConsoleColorChanger.ChangeColor("You don't have enough money! Game is over.", ConsoleColor.Red);
             }
         }
-
-        public bool IsOutOfMoney(decimal input)
-        {
-            if (Balance >= input)
-            {
-                return false;
-            }
-
-            //ConsoleColorChanger.ChangeColor("You don't have enough money! Game is over.", ConsoleColor.Red);
-            IsAlive = false;
-            return true;
-        }
-
-        public bool EnteredSumIsCorrect(decimal input)
-        {
-            if (Balance >= input)
-            {
-                return true;
-            }
-
-            //Console.WriteLine("You don't have that sum of money! Please, try again:");
-            return false;
-        }
-
+        
         public string Skip(Type enemy)
         {
             switch (enemy)
             {
-                case var _ when (enemy.Equals(typeof(Thief)) || enemy.Equals(typeof(Assassin))):
+                case var _ when enemy.Equals(typeof(Thief)) || enemy.Equals(typeof(Assassin)):
                     IsAlive = false;
                     return "You're killed! Game is over.";
                 case var _ when enemy.Equals(typeof(Beggar)):

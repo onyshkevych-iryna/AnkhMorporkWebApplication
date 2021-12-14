@@ -3,12 +3,11 @@ using AnkhMorporkWebApp.Models;
 
 namespace AnkhMorporkWebApp.Guilds
 {
-    public class GuildOfFools
+    public class GuildOfFools : Guilds<Fool>
     {
-
-        public  Player InteractionWithPlayer(string action, decimal balance, int beerAmount, decimal sum)
+        public override Player InteractionWithPlayer(string action, out string controller, out string act, out string message, decimal balance = 0, int beerAmount = 0, decimal sum = 0)
         {
-            Player player = new Player(balance, beerAmount);
+            var player = new Player(balance, beerAmount);
             if (action == "Yes")
             {
                 player.GetMoney(sum);
@@ -17,6 +16,9 @@ namespace AnkhMorporkWebApp.Guilds
             {
                 player.Skip(typeof(Fool));
             }
+            act = "Index";
+            controller = "Game";
+            message = null;
             return player;
         }
     }

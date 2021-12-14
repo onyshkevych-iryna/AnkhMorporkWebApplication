@@ -7,17 +7,17 @@ namespace AnkhMorporkWebApp.Controllers
     {
         public ActionResult Index(Player player)
         {
-            PlayerPubViewModel pbvm = new PlayerPubViewModel
+            var pubViewModel = new PlayerPubViewModel
             {
-                player = player,
-                pub = new Pub()
+                Player = player,
+                Pub = new Pub()
             };
-            return View(pbvm);
+            return View(pubViewModel);
         }
         
         public ActionResult GetBeer(Player player)
         {
-            Pub pub = new Pub();
+            var pub = new Pub();
             if (player.BeerAmount < pub.MaxAmountOfBeerForPlayer)
             {
                 player.BeerAmount++;
