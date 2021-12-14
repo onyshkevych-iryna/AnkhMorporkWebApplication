@@ -1,5 +1,4 @@
-﻿@using AnkhMorporkWebApp.Models
-@model AnkhMorporkWebApp.Models.PlayerPubViewModel
+﻿@model AnkhMorporkWebApp.Models.PlayerPubViewModel
 @{
     ViewBag.Title = "Pub";
 }
@@ -11,7 +10,7 @@
     </div>
     <div class="card-body">
         <h4 class="card-title">
-            Your count of beer: @Model.Player.BeerAmount
+            Your number of beer: @Model.Player.BeerAmount
         </h4>
         <p class="card-text">
             @if (Model.Player.BeerAmount < Model.Pub.MaxAmountOfBeerForPlayer)

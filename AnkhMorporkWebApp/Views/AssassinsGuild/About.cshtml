@@ -1,9 +1,8 @@
-﻿@using AnkhMorporkWebApp.Models
-@model AnkhMorporkWebApp.Models.PlayerAssassinViewModel
+﻿@model AnkhMorporkWebApp.Models.PlayerAssassinViewModel
 @{
     ViewBag.Title = "Index";
 }
-<p class="text-primary"> <i class="fas fa-dollar-sign"></i> Balance: @Model.Player.Balance</p>
+<p class="text-primary"> <i class="fas fa-dollar-sign"></i> Balance: @Model.Player.Balance AM$</p>
 
 @using (Html.BeginForm("Yes", "AssassinsGuild", FormMethod.Post))
 {
