@@ -10,18 +10,21 @@ namespace AnkhMorporkWebApp.Services.GuildsServices
 
         public PlayerFoolViewModel GetRandomFool(Player _player, Random rnd)
         {
-            var fools = db.Fools.ToList();
-            var fool = fools[rnd.Next(1, fools.Count)];
-            var foolViewModel = new PlayerFoolViewModel
+            using (var unitOfWork = new UnitOfWork(new ApplicationContext()))
             {
-                Player = _player,
-                Fool = new Fool
+                var fools = unitOfWork.Fools.GetAllFools();
+                var fool = fools[rnd.Next(1, fools.Count)];
+                var foolViewModel = new PlayerFoolViewModel
                 {
-                    Practice = fool.Practice,
-                    Fee = fool.Fee
-                }
-            };
-            return foolViewModel;
+                    Player = _player,
+                    Fool = new Fool
+                    {
+                        Practice = fool.Practice,
+                        Fee = fool.Fee
+                    }
+                };
+                return foolViewModel;
+            }
         }
     }
 }

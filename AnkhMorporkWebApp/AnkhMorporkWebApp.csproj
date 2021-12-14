@@ -136,12 +136,15 @@
   <ItemGroup>
     <Compile Include="Abstracts\Guilds.cs" />
     <Compile Include="Abstracts\IAssassinRepository.cs" />
+    <Compile Include="Abstracts\IBeggarRepository.cs" />
+    <Compile Include="Abstracts\IFoolRepository.cs" />
     <Compile Include="Abstracts\IRepository.cs" />
     <Compile Include="Abstracts\IUnitOfWork.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="AssassinRepository.cs" />
+    <Compile Include="Repositories\AssassinRepository.cs" />
+    <Compile Include="Repositories\BeggarRepository.cs" />
     <Compile Include="Controllers\AssassinsGuildController.cs" />
     <Compile Include="Controllers\BeggarsGuildController.cs" />
     <Compile Include="Controllers\FoolsGuildController.cs" />
@@ -149,6 +152,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PubController.cs" />
     <Compile Include="Controllers\ThievesGuildController.cs" />
+    <Compile Include="Repositories\FoolRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

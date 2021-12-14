@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AnkhMorporkWebApp.Abstracts;
+using AnkhMorporkWebApp.Controllers;
 
 namespace AnkhMorporkWebApp
 {
@@ -14,8 +15,12 @@ namespace AnkhMorporkWebApp
         {
             _context = context;
             Assassins = new AssassinRepository(_context);
+            Beggars = new BeggarRepository(_context);
+            Fools = new FoolRepository(_context);
         }
         public IAssassinRepository Assassins { get; private set; }
+        public IBeggarRepository Beggars { get; private set; }
+        public IFoolRepository Fools { get; private set; }
 
         public void Dispose()
         {
