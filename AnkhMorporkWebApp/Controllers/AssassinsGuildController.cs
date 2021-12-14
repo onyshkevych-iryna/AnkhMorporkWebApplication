@@ -15,14 +15,14 @@ namespace AnkhMorporkWebApp.Controllers
             return View(model);
         }
 
-        public ActionResult About(decimal amount)
+        public ActionResult About(decimal amount, int amountOfBeer)
         {
-            _player = new Player(amount);
+            _player = new Player(amount, amountOfBeer);
             var assassinViewModel = new PlayerAssassinViewModel
             {
                 BalanceOfPlayer = amount,
-                Player = _player
-            };
+                Player = _player,
+              };
             return View(assassinViewModel);
         }
 

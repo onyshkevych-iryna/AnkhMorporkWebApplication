@@ -6,7 +6,6 @@ namespace AnkhMorporkWebApp.Models
     public class PlayerAssassinViewModel
     {
         public Player Player { get; set; }
-        public Assassin Assassin { get; set; }
         public decimal BalanceOfPlayer { get; set; }
         //[Required(ErrorMessage = "Amount is required!")]
         [Required]
