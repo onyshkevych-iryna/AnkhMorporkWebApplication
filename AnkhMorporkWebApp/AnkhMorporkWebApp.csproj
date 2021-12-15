@@ -134,12 +134,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Abstracts\Guilds.cs" />
-    <Compile Include="Core\Abstracts\IAssassinRepository.cs" />
-    <Compile Include="Core\Abstracts\IBeggarRepository.cs" />
-    <Compile Include="Core\Abstracts\IFoolRepository.cs" />
-    <Compile Include="Core\Abstracts\IRepository.cs" />
-    <Compile Include="Core\Abstracts\IUnitOfWork.cs" />
+    <Compile Include="Core\Guilds.cs" />
+    <Compile Include="Core\Repositories\IAssassinRepository.cs" />
+    <Compile Include="Core\Repositories\IBeggarRepository.cs" />
+    <Compile Include="Core\Repositories\IFoolRepository.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
