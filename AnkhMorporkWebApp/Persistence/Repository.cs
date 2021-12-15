@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using AnkhMorporkWebApp.Abstracts;
 
 namespace AnkhMorporkWebApp
@@ -19,6 +17,5 @@ namespace AnkhMorporkWebApp
         {
             return Context.Set<TEntity>().ToList();
         }
-
     }
 }

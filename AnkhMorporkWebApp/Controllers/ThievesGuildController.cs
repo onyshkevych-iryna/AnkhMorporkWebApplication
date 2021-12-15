@@ -18,16 +18,16 @@ namespace AnkhMorporkWebApp.Controllers
 
         public ActionResult Yes(string action, Player player)
         {
-            player = _guild.InteractionWithPlayer(action, out string controller, out string actionName,
+            player = _guild.InteractionWithPlayer(action, out string actionName,
                 out string message, player.Balance, player.BeerAmount, _thief.Fee);
-            return RedirectToAction(actionName, controller, player);
+            return RedirectToAction(actionName, "Game", player);
         }
 
         public ActionResult No(string action)
         {
-            _guild.InteractionWithPlayer(action, out string con, out string act,
+            _guild.InteractionWithPlayer(action, out string act,
                 out string message);
-            return RedirectToAction(act, con, new { slogan = message });
+            return RedirectToAction(act, "Game", new { slogan = message });
         }
     }
 }

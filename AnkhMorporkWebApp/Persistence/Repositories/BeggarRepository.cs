@@ -1,8 +1,6 @@
 ﻿using AnkhMorporkWebApp.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using AnkhMorporkWebApp.Abstracts;
 
 namespace AnkhMorporkWebApp
@@ -17,11 +15,6 @@ namespace AnkhMorporkWebApp
         {
             var guildOfBeggars = Context.Beggars.ToList();
             return guildOfBeggars;
-        }
-
-        public ApplicationContext ApplicationContext
-        {
-            get { return Context as ApplicationContext; }
         }
     }
 }

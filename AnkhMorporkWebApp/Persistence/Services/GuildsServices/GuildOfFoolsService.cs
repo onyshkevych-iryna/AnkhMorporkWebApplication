@@ -6,8 +6,6 @@ namespace AnkhMorporkWebApp.Services.GuildsServices
 {
     public class GuildOfFoolsService
     {
-        private ApplicationContext db = new ApplicationContext();
-
         public PlayerFoolViewModel GetRandomFool(Player _player, Random rnd)
         {
             using (var unitOfWork = new UnitOfWork(new ApplicationContext()))
