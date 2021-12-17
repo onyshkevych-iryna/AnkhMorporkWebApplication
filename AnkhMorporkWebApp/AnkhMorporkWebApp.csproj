@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Guilds.cs" />
+    <Compile Include="Core\IPlayerViewModelBuilder.cs" />
     <Compile Include="Core\Repositories\IAssassinRepository.cs" />
     <Compile Include="Core\Repositories\IBeggarRepository.cs" />
     <Compile Include="Core\Repositories\IFoolRepository.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Persistence\Services\GuildsServices\GuildOfFoolsService.cs" />
     <Compile Include="Persistence\Services\GuildsServices\GuildOfThievesService.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
+    <Compile Include="ViewModelBuilder\PlayerViewModelBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client Scripts\mvcfoolproof.unobtrusive.js" />
